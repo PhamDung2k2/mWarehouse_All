@@ -233,6 +233,119 @@ ThongKe As screen:
                 HoverFill: =App.Theme.Colors.Lighter70
                 InputTextPlaceholder: ="Chọn nội dung biểu đồ"
                 Items: =["Số lượng đơn nhập được tạo","Só lượng đơn xuất được tạo","Thống kê theo trạng thái đơn nhập","Thống kê theo trạng thái đơn xuất","Số lượng sản phẩm đã được cập nhật theo thời gian"]
+                OnChange: |-
+                    =If(
+                        ComboBox1.Selected.Value = "Số lượng đơn nhập được tạo",
+                        UpdateContext({}),
+                        If(
+                            ComboBox1.Selected.Value = "Số lượng đơn xuất được tạo",
+                            UpdateContext({}),
+                            If(
+                                ComboBox1.Selected.Value = "Thống kê theo trạng thái đơn nhập",
+                                UpdateContext({ShowTT_NX: true});
+                                ClearCollect(
+                                    TT_NX,
+                                    Table(
+                                        {
+                                            ID: 1,
+                                            statusN: "Chờ duyệt",
+                                            quantity: {
+                                                Value: CountIf(
+                                                    'mWarehouse.Imports',
+                                                    status.Value = "Chờ duyệt"
+                                                )
+                                            }
+                                        },
+                                        {
+                                            ID: 2,
+                                            statusN: "Đơn hàng",
+                                            quantity: {
+                                                Value: CountIf(
+                                                    'mWarehouse.Imports',
+                                                    status.Value = "Đơn hàng"
+                                                )
+                                            }
+                                        },
+                                        {
+                                            ID: 3,
+                                            statusN: "Từ chối",
+                                            quantity: {
+                                                Value: CountIf(
+                                                    'mWarehouse.Imports',
+                                                    status.Value = "Từ chối"
+                                                )
+                                            }
+                                        },
+                                        {
+                                            ID: 4,
+                                            statusN: "Hoàn thành",
+                                            quantity: {
+                                                Value: CountIf(
+                                                    'mWarehouse.Imports',
+                                                    status.Value = "Hoàn thành"
+                                                )
+                                            }
+                                        }
+                                    )
+                                );
+                                ,
+                                If(
+                                    ComboBox1.Selected.Value = "Thống kê theo trạng thái đơn xuất",
+                                    UpdateContext({ShowTT_NX: true});
+                                    ClearCollect(
+                                    TT_NX,
+                                    Table(
+                                        {
+                                            ID: 1,
+                                            statusN: "Chờ duyệt",
+                                            quantity: {
+                                                Value: CountIf(
+                                                    'mWarehouse.Exports',
+                                                    status.Value = "Chờ duyệt"
+                                                )
+                                            }
+                                        },
+                                        {
+                                            ID: 2,
+                                            statusN: "Đơn hàng",
+                                            quantity: {
+                                                Value: CountIf(
+                                                    'mWarehouse.Exports',
+                                                    status.Value = "Đơn hàng"
+                                                )
+                                            }
+                                        },
+                                        {
+                                            ID: 3,
+                                            statusN: "Từ chối",
+                                            quantity: {
+                                                Value: CountIf(
+                                                    'mWarehouse.Exports',
+                                                    status.Value = "Từ chối"
+                                                )
+                                            }
+                                        },
+                                        {
+                                            ID: 4,
+                                            statusN: "Hoàn thành",
+                                            quantity: {
+                                                Value: CountIf(
+                                                    'mWarehouse.Exports',
+                                                    status.Value = "Hoàn thành"
+                                                )
+                                            }
+                                        }
+                                    )
+                                );
+                                    ,
+                                    If(
+                                        ComboBox1.Selected.Value = "Số lượng sản phẩm đã được cập nhật theo thời gian",
+                                        UpdateContext({})
+                                    )
+                                )
+                            )
+                        )
+                    )
                 PressedColor: =RGBA(255, 255, 255, 1)
                 PressedFill: =App.Theme.Colors.Darker30
                 SearchFields: =["Value"]
@@ -268,7 +381,8 @@ ThongKe As screen:
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =App.Theme.Font
                     Height: =25
-                    Text: ="Chart Title"
+                    Text: =ComboBox1.Selected.Value
+                    Visible: =ShowTT_NX
                     Width: =400
                     X: =2
                     Y: =25
@@ -277,7 +391,8 @@ ThongKe As screen:
                 PieChart1 As pieChart:
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
-                    Items: =PieChartSample
+                    Items: =TT_NX
+                    Visible: =ShowTT_NX
                     X: =2
                     Y: =55
                     ZIndex: =3
@@ -288,6 +403,7 @@ ThongKe As screen:
                     Height: =200
                     ItemColorSet: =PieChart1.ItemColorSet
                     Items: =PieChart1.SeriesLabels
+                    Visible: =ShowTT_NX
                     Width: =400
                     X: =585
                     Y: =135
