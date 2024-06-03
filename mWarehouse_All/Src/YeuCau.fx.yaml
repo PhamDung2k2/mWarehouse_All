@@ -610,8 +610,11 @@ YeuCau As screen:
                             OnSelect: |-
                                 =If(
                                     Gallery3_1.Selected.status.Value <> "Chờ duyệt",
-                                    Notify("Không thể chỉnh sửa thông tin này vì đã được giám đốc phê duyệt !"),If(!IsBlank(Gallery3_1.Selected.importCode),UpdateContext({ShowThemDonN1: true}))
-                                    
+                                    Notify("Không thể chỉnh sửa thông tin này vì đã được giám đốc phê duyệt !"),
+                                    If(
+                                        !IsBlank(Gallery3_1.Selected.importCode),
+                                        UpdateContext({ShowThemDonN1: true}),UpdateContext({ShowUpdateDonX:true})
+                                    )
                                 )
                             Size: =20
                             Text: ="✏️"
@@ -4362,7 +4365,7 @@ YeuCau As screen:
             Width: =Parent.Width
             ZIndex: =20
 
-    ThemKH_Add_1 As group:
+    ThemKH_Update As group:
         Height: =5
         Width: =5
         X: =40
@@ -4375,7 +4378,7 @@ YeuCau As screen:
             Height: =Parent.Height
             OnSelect: |-
                 =//UpdateContext({ShowThemKH: false})
-            Visible: =ShowThemKH2
+            Visible: =ShowThemKH3
             Width: =Parent.Width
             ZIndex: =46
 
@@ -4387,7 +4390,7 @@ YeuCau As screen:
             RadiusBottomRight: =4
             RadiusTopLeft: =4
             RadiusTopRight: =4
-            Visible: =ShowThemKH2
+            Visible: =ShowThemKH3
             Width: =Parent.Width/1.2
             X: =Rectangle1_31.Width/12
             Y: =Rectangle1_31.Height/12
@@ -4414,7 +4417,7 @@ YeuCau As screen:
                 Height: =35
                 Icon: =Icon.Cancel
                 OnSelect: |-
-                    =UpdateContext({ShowThemKH2: false})
+                    =UpdateContext({ShowThemKH3: false})
                 Width: =35
                 X: =1091
                 Y: =12
@@ -4732,7 +4735,7 @@ YeuCau As screen:
                         IsBlank(DataCardValue1_3.Text) Or IsBlank(DataCardValue2_3.Text) Or IsBlank(DataCardValue3_3.Text),
                         Notify("Không được để trống !"),
                         SubmitForm(Form1_3);
-                        UpdateContext({ShowThemKH2: false});
+                        UpdateContext({ShowThemKH3: false});
                         Notify("Thêm mới thành công")
                     )
                 PressedBorderColor: =App.Theme.Colors.Darker40
@@ -7099,7 +7102,7 @@ YeuCau As screen:
                 Y: =19
                 ZIndex: =39
 
-    DonXuat_add_1 As group:
+    DonXuat_Update As group:
         Height: =5
         Width: =5
         X: =40
@@ -7112,11 +7115,11 @@ YeuCau As screen:
             Height: =Parent.Height
             OnSelect: |-
                 =UpdateContext({ShowThemDon: false})
-            Visible: =ShowThemDonN
+            Visible: =ShowUpdateDonX
             Width: =Parent.Width
             ZIndex: =38
 
-        CTDonX_add_1 As groupContainer.manualLayoutContainer:
+        CTDonX_Update As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
             Fill: =RGBA(255, 255, 255, 1)
             Height: =Parent.Height/1.2
@@ -7124,7 +7127,7 @@ YeuCau As screen:
             RadiusBottomRight: =4
             RadiusTopLeft: =4
             RadiusTopRight: =4
-            Visible: =ShowThemDonX
+            Visible: =ShowUpdateDonX
             Width: =Parent.Width/1.2
             X: =Rectangle1_29.Width/12
             Y: =Rectangle1_29.Height/12
@@ -7332,8 +7335,8 @@ YeuCau As screen:
                             Notify("Bỏ chọn khách hàng để có thể tạo thông tin khách hàng mới!"),
                             ResetForm(Form1_3);
                             NewForm(Form1_3);
-                            UpdateContext({ShowThemKH2: true});
-                            UpdateContext({ShowTTKH_Add: true})
+                            UpdateContext({ShowThemKH3: true});
+                            UpdateContext({ShowTTKH_Update: true})
                         )
                     Tooltip: ="Thêm mới thông tin khách hàng"
                     Width: =35
@@ -7767,7 +7770,7 @@ YeuCau As screen:
             Width: =Parent.Width
             ZIndex: =40
 
-        HuyBoX_Add_1 As groupContainer.manualLayoutContainer:
+        HuyBoX_Update As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
             Fill: =RGBA(255, 255, 255, 1)
             Height: =Container9_14.Height / 2.5
@@ -7777,8 +7780,8 @@ YeuCau As screen:
             RadiusTopRight: =4
             Visible: =ShowHuyBoX_Add
             Width: =Container9_14.Width / 1.5
-            X: =HuyBoX_Add_1.Width /2.5
-            Y: =HuyBoX_Add_1.Height / 1.1
+            X: =HuyBoX_Update.Width /2.5
+            Y: =HuyBoX_Update.Height / 1.1
             ZIndex: =41
 
             Label1_31 As label:
@@ -7856,7 +7859,7 @@ YeuCau As screen:
             Width: =Parent.Width
             ZIndex: =42
 
-        XacNhanX_add_1 As groupContainer.manualLayoutContainer:
+        XacNhanX_Update As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
             Fill: =RGBA(255, 255, 255, 1)
             Height: =Container9_14.Height / 2.5
@@ -7866,8 +7869,8 @@ YeuCau As screen:
             RadiusTopRight: =4
             Visible: =ShowXacNhanX_Add
             Width: =Container9_14.Width / 1.5
-            X: =XacNhanX_add_1.Width /2.5
-            Y: =XacNhanX_add_1.Height / 1.1
+            X: =XacNhanX_Update.Width /2.5
+            Y: =XacNhanX_Update.Height / 1.1
             ZIndex: =43
 
             Label1_30 As label:
