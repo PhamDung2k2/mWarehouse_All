@@ -21471,6 +21471,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ThongKe.IsDNQuantity"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ThongKe.IsDNQuantity",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "IsDNQuantity",
+                "module": "ThongKe",
+                "type": "ThongKe"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "ThongKe.Container1_4.Label5_8.Text"
                 }
               ],
