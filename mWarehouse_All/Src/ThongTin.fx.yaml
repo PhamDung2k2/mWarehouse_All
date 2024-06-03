@@ -1947,9 +1947,7 @@ ThongTin As screen:
                     HoverFill: =App.Theme.Colors.Lighter70
                     InputTextPlaceholder: ="Chọn nhà cung cấp"
                     Items: ='mWarehouse.Suppliers'
-                    OnChange: |-
-                        =Reset(ComboBox5);
-                        Reset(TextInput4);
+                    OnChange: =Reset(ComboBox5);
                     PressedColor: =RGBA(255, 255, 255, 1)
                     PressedFill: =App.Theme.Colors.Darker30
                     SearchFields: =["Title"]

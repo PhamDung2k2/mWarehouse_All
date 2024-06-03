@@ -969,9 +969,7 @@ YeuCau As screen:
                     HoverFill: =App.Theme.Colors.Lighter70
                     InputTextPlaceholder: ="Chọn nhà cung cấp"
                     Items: ='mWarehouse.Suppliers'
-                    OnChange: |-
-                        =Reset(ComboBox5_1);
-                        Reset(TextInput4_1);
+                    OnChange: =Reset(ComboBox5_1);
                     PressedColor: =RGBA(255, 255, 255, 1)
                     PressedFill: =App.Theme.Colors.Darker30
                     SearchFields: =["Title"]
@@ -3757,9 +3755,7 @@ YeuCau As screen:
                     HoverFill: =App.Theme.Colors.Lighter70
                     InputTextPlaceholder: ="Chọn nhà cung cấp"
                     Items: ='mWarehouse.Suppliers'
-                    OnChange: |-
-                        =Reset(ComboBox5_2);
-                        Reset(TextInput4_1);
+                    OnChange: =Reset(ComboBox5_2);
                     PressedColor: =RGBA(255, 255, 255, 1)
                     PressedFill: =App.Theme.Colors.Darker30
                     SearchFields: =["Title"]
@@ -9037,9 +9033,7 @@ YeuCau As screen:
                     InputTextPlaceholder: ="Chọn tên khách hàng"
                     Items: ='mWarehouse.Customers'
                     NoSelectionText: ="Chọn tên khách hàng"
-                    OnChange: |-
-                        =Reset(ComboBox5_3);
-                        Reset(TextInput4_1);
+                    OnChange: =Reset(ComboBox5_3);
                     PressedColor: =RGBA(255, 255, 255, 1)
                     PressedFill: =App.Theme.Colors.Darker30
                     SearchFields: =["Title"]
