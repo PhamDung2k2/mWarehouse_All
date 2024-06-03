@@ -2309,7 +2309,7 @@ YeuCau As screen:
                 Y: =19
                 ZIndex: =39
 
-    ThemKH_1 As group:
+    ThemKH_Add As group:
         Height: =5
         Width: =5
         X: =40
@@ -4361,6 +4361,388 @@ YeuCau As screen:
             Visible: =
             Width: =Parent.Width
             ZIndex: =20
+
+    ThemKH_Add_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =37
+
+        Rectangle1_31 As rectangle:
+            BorderColor: =RGBA(202, 202, 202, 1)
+            Fill: =RGBA(202, 202, 202, 0.5)
+            Height: =Parent.Height
+            OnSelect: |-
+                =//UpdateContext({ShowThemKH: false})
+            Visible: =ShowThemKH2
+            Width: =Parent.Width
+            ZIndex: =46
+
+        Container9_23 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height/1.2
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =ShowThemKH2
+            Width: =Parent.Width/1.2
+            X: =Rectangle1_31.Width/12
+            Y: =Rectangle1_31.Height/12
+            ZIndex: =47
+
+            Label1_34 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Bold
+                Size: =15
+                Text: ="Thêm mới khách hàng"
+                Width: =250
+                X: =10
+                Y: =10
+                ZIndex: =1
+
+            Icon4_17 As icon.Cancel:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =Color.Red
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =35
+                Icon: =Icon.Cancel
+                OnSelect: |-
+                    =UpdateContext({ShowThemKH2: false})
+                Width: =35
+                X: =1091
+                Y: =12
+                ZIndex: =2
+
+            Form1_3 As form:
+                BorderColor: =App.Theme.Colors.Darker40
+                DataSource: ='mWarehouse.Customers'
+                Height: =401
+                NumberOfColumns: =1
+                Width: =1091
+                X: =27
+                Y: =86
+                ZIndex: =3
+
+                Title_DataCard1_3 As typedDataCard.textualEditCard:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Title"
+                    Default: =ThisItem.Title
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'mWarehouse.Customers'],DataSourceInfo.DisplayName,Title)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@'mWarehouse.Customers'], DataSourceInfo.MaxLength, Title)
+                    Required: =false
+                    Update: =DataCardValue1_3.Text
+                    Width: =1091
+                    X: =0
+                    Y: =0
+                    ZIndex: =4
+
+                    DataCardKey1_3 As label:
+                        AutoHeight: =true
+                        Color: =App.Theme.Colors.Darker30
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Height: =34
+                        Size: =15
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Họ và tên khách hàng"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue1_3 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        FocusedBorderThickness: =4
+                        Font: =App.Theme.Font
+                        Height: =50
+                        HoverBorderColor: =App.Theme.Colors.Darker40
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
+                        MaxLength: =Parent.MaxLength
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =13
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey1_3.Y + DataCardKey1_3.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage1_3 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue1_3.Y + DataCardValue1_3.Height
+                        ZIndex: =3
+
+                    StarVisible1_3 As label:
+                        Align: =Align.Center
+                        Color: =App.Theme.Colors.Darker30
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Height: =DataCardKey1_3.Height
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey1_3.Y
+                        ZIndex: =4
+
+                address_DataCard2_3 As typedDataCard.textualEditCard:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="address"
+                    Default: =ThisItem.address
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'mWarehouse.Customers'],DataSourceInfo.DisplayName,address)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    MaxLength: =DataSourceInfo([@'mWarehouse.Customers'], DataSourceInfo.MaxLength, address)
+                    Required: =false
+                    Update: =DataCardValue2_3.Text
+                    Width: =1091
+                    X: =0
+                    Y: =1
+                    ZIndex: =4
+
+                    DataCardKey2_3 As label:
+                        AutoHeight: =true
+                        Color: =App.Theme.Colors.Darker30
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Height: =34
+                        Size: =15
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Địa chỉ khách hàng"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue2_3 As text:
+                        Align: =Align.Justify
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        FocusedBorderThickness: =4
+                        Font: =App.Theme.Font
+                        Height: =100
+                        HoverBorderColor: =App.Theme.Colors.Darker40
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
+                        MaxLength: =Parent.MaxLength
+                        Mode: =TextMode.MultiLine
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =13
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey2_3.Y + DataCardKey2_3.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage2_3 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue2_3.Y + DataCardValue2_3.Height
+                        ZIndex: =3
+
+                    StarVisible2_3 As label:
+                        Align: =Align.Center
+                        Color: =App.Theme.Colors.Darker30
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Height: =DataCardKey2_3.Height
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey2_3.Y
+                        ZIndex: =4
+
+                phone_DataCard2_3 As typedDataCard.numberEditCard:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="phone"
+                    Default: =ThisItem.phone
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@'mWarehouse.Customers'],DataSourceInfo.DisplayName,phone)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =Value(DataCardValue3_3.Text)
+                    Width: =1091
+                    X: =0
+                    Y: =2
+                    ZIndex: =4
+
+                    DataCardKey3_3 As label:
+                        AutoHeight: =true
+                        Color: =App.Theme.Colors.Darker30
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Height: =34
+                        Size: =15
+                        Text: |-
+                            =//Parent.DisplayName
+                            "Số điện thoại"
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    DataCardValue3_3 As text:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        BorderThickness: =2
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =Parent.Default
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayMode: =Parent.DisplayMode
+                        FocusedBorderThickness: =4
+                        Font: =App.Theme.Font
+                        Format: =TextFormat.Number
+                        Height: =50
+                        HoverBorderColor: =App.Theme.Colors.Darker40
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
+                        PaddingLeft: =5
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =13
+                        Tooltip: =Parent.DisplayName
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey3_3.Y + DataCardKey3_3.Height + 5
+                        ZIndex: =2
+
+                    ErrorMessage3_3 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(168, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Semibold
+                        Height: =10
+                        Live: =Live.Assertive
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardValue3_3.Y + DataCardValue3_3.Height
+                        ZIndex: =3
+
+                    StarVisible3_3 As label:
+                        Align: =Align.Center
+                        Color: =App.Theme.Colors.Darker30
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Height: =DataCardKey3_3.Height
+                        Size: =13
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        Y: =DataCardKey3_3.Y
+                        ZIndex: =4
+
+            Button8_3 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =App.Theme.Colors.Primary
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Semibold
+                HoverBorderColor: =App.Theme.Colors.Darker10
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =App.Theme.Colors.Darker10
+                OnSelect: |-
+                    =If(
+                        IsBlank(DataCardValue1_3.Text) Or IsBlank(DataCardValue2_3.Text) Or IsBlank(DataCardValue3_3.Text),
+                        Notify("Không được để trống !"),
+                        SubmitForm(Form1_3);
+                        UpdateContext({ShowThemKH2: false});
+                        Notify("Thêm mới thành công")
+                    )
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                Size: =15
+                Text: ="Tạo mới"
+                X: =492
+                Y: =533
+                ZIndex: =4
 
     UpdateSP_DN_2 As group:
         Height: =5
@@ -6717,6 +7099,1639 @@ YeuCau As screen:
                 Y: =19
                 ZIndex: =39
 
+    DonXuat_add_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =48
+
+        Rectangle1_29 As rectangle:
+            BorderColor: =RGBA(202, 202, 202, 1)
+            Fill: =RGBA(202, 202, 202, 0.5)
+            Height: =Parent.Height
+            OnSelect: |-
+                =UpdateContext({ShowThemDon: false})
+            Visible: =ShowThemDonN
+            Width: =Parent.Width
+            ZIndex: =38
+
+        CTDonX_add_1 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height/1.2
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =ShowThemDonX
+            Width: =Parent.Width/1.2
+            X: =Rectangle1_29.Width/12
+            Y: =Rectangle1_29.Height/12
+            ZIndex: =39
+
+            Label1_32 As label:
+                Align: =Align.Center
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Bold
+                Size: =13
+                Text: ="Mã đơn xuất"
+                Width: =200
+                X: =20
+                Y: =9
+                ZIndex: =1
+
+            Icon1_5 As icon.Cancel:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =Color.Red
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =35
+                Icon: =Icon.Cancel
+                OnSelect: |-
+                    =UpdateContext({ShowThemDonX: false})
+                Width: =35
+                X: =1086
+                Y: =16
+                ZIndex: =2
+
+            Container13_5 As groupContainer.manualLayoutContainer:
+                DropShadow: =DropShadow.Light
+                Height: =283
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =1138
+                Y: =279
+                ZIndex: =3
+
+                Gallery2_5 As gallery.galleryVertical:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    DelayItemLoading: =true
+                    Height: =283
+                    Items: =Filter('mWarehouse.ExportDetails',exportID = Label1_33.Text)
+                    Layout: =Layout.Vertical
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplateSize: =70
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                    Container18_5 As groupContainer.manualLayoutContainer:
+                        DropShadow: =DropShadow.Regular
+                        Height: =70
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =1128
+                        ZIndex: =1
+
+                        Label14_5 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Font: =App.Theme.Font
+                            Height: =65
+                            OnSelect: |-
+                                =UpdateContext({ShowUpdateSP_DN1:true})
+                            Size: =13
+                            Text: =ThisItem.Title
+                            Width: =350
+                            X: =10
+                            Y: =2
+                            ZIndex: =1
+
+                        Button5_12 As button:
+                            BorderColor: =App.Theme.Colors.Primary
+                            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            DisplayMode: =DisplayMode.View
+                            Fill: =RGBA(221, 79, 14, 0.75)
+                            Font: =App.Theme.Font
+                            FontWeight: =FontWeight.Semibold
+                            Height: =30
+                            HoverBorderColor: =App.Theme.Colors.Darker10
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =App.Theme.Colors.Darker10
+                            PressedBorderColor: =App.Theme.Colors.Darker40
+                            PressedColor: =Self.Color
+                            PressedFill: =App.Theme.Colors.Darker40
+                            Text: =LookUp('mWarehouse.Products',ID = ThisItem.productID).category.Value
+                            Width: =100
+                            X: =411
+                            Y: =20
+                            ZIndex: =2
+
+                        Icon3_9 As icon.Add:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =Color.Red
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            Height: =35
+                            Icon: =Icon.HorizontalLine
+                            OnSelect: |
+                                =RemoveIf(
+                                    'mWarehouse.ExportDetails',
+                                    ID = Gallery2_5.Selected.ID
+                                );
+                            Width: =35
+                            X: =1077
+                            Y: =17
+                            ZIndex: =3
+
+                        Label13_22 As label:
+                            Align: =Align.Center
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Font: =App.Theme.Font
+                            Height: =65
+                            OnSelect: |-
+                                =UpdateContext({ShowUpdateSP_DN1:true})
+                            Size: =13
+                            Text: |-
+                                =Concatenate(Text(ThisItem.priceExport,"###,###")," VNĐ")
+                            Width: =200
+                            X: =533
+                            Y: =2
+                            ZIndex: =4
+
+                        Label12_17 As label:
+                            Align: =Align.Center
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Font: =App.Theme.Font
+                            Height: =65
+                            OnSelect: |-
+                                =UpdateContext({ShowUpdateSP_DN1:true})
+                            Size: =13
+                            Text: =ThisItem.quantity
+                            Width: =80
+                            X: =749
+                            Y: =2
+                            ZIndex: =5
+
+                        Label13_23 As label:
+                            Align: =Align.Center
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Font: =App.Theme.Font
+                            Height: =65
+                            OnSelect: |-
+                                =UpdateContext({ShowUpdateSP_DN1:true})
+                            Size: =13
+                            Text: |-
+                                =Concatenate(Text(ThisItem.totalPrice,"###,###")," VNĐ")
+                            Width: =200
+                            X: =849
+                            Y: =2
+                            ZIndex: =6
+
+            Container16_10 As groupContainer.manualLayoutContainer:
+                DropShadow: =DropShadow.Semibold
+                Height: =70
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =1138
+                Y: =138
+                ZIndex: =4
+
+                Icon3_8 As icon.Add:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =App.Theme.Colors.Darker30
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    Height: =35
+                    Icon: =Icon.Add
+                    OnSelect: |-
+                        =/*If(
+                            IsBlank(ComboBox4_3.Selected.ID),
+                            Notify ("Hãy chọn nhà cung cấp!"),
+                            UpdateContext({ShowThemSPdemo4: true});
+                            Reset(ComboBox3_8);
+                            Reset(TextInput5_129);
+                            Reset(TextInput5_130);
+                            Reset(TextInput5_131);
+                            Reset(TextInput5_132);
+                            Reset(TextInput5_133);
+                            Reset(NumberInput3_2);
+                            Reset(AddMediaButton1_11);
+                            
+                        )*/
+                        If(
+                            !IsBlank(ComboBox4_4.Selected.ID),
+                            Notify("Bỏ chọn khách hàng để có thể tạo thông tin khách hàng mới!"),
+                            ResetForm(Form1_3);
+                            NewForm(Form1_3);
+                            UpdateContext({ShowThemKH2: true});
+                            UpdateContext({ShowTTKH_Add: true})
+                        )
+                    Tooltip: ="Thêm mới thông tin khách hàng"
+                    Width: =35
+                    X: =1084
+                    Y: =16
+                    ZIndex: =1
+
+                ComboBox4_4 As combobox:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    ChevronBackground: =App.Theme.Colors.Primary
+                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                    ChevronHoverBackground: =App.Theme.Colors.Darker10
+                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                    DefaultSelectedItems: |-
+                        =/*If (
+                            !IsEmpty(
+                                Filter(
+                                    'mWarehouse.ImportDetails',
+                                    importID = Label1_29.Text
+                                )
+                            ),
+                            LookUp(
+                                'mWarehouse.Suppliers',
+                                ID exactin Filter(
+                                    'mWarehouse.Products',
+                                    ID exactin Filter(
+                                        'mWarehouse.ImportDetails',
+                                        importID = Label1_29.Text
+                                    ).productID
+                                ).supplierID
+                            )
+                        )*/
+                        If(ShowTTKH_Add,Last('mWarehouse.Customers'))
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayFields: =["Title"]
+                    DisplayMode: |-
+                        =//If(IsEmpty(Gallery2_4.AllItems),DisplayMode.Edit,DisplayMode.Disabled)
+                        DisplayMode.Edit
+                    Font: =App.Theme.Font
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =App.Theme.Colors.Lighter70
+                    InputTextPlaceholder: ="Chọn tên khách hàng"
+                    Items: ='mWarehouse.Customers'
+                    NoSelectionText: ="Chọn tên khách hàng"
+                    OnChange: |-
+                        =Reset(ComboBox5_4);
+                        Reset(TextInput4_1);
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =App.Theme.Colors.Darker30
+                    SearchFields: =["Title"]
+                    SearchItems: =Search('mWarehouse.Customers',ComboBox4_4.SearchText,Title)
+                    SelectionFill: =App.Theme.Colors.Primary
+                    SelectMultiple: =false
+                    Size: =13
+                    Width: =380
+                    X: =20
+                    Y: =16
+                    ZIndex: =4
+
+                ComboBox5_4 As combobox:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    ChevronBackground: =App.Theme.Colors.Primary
+                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                    ChevronHoverBackground: =App.Theme.Colors.Darker10
+                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayFields: =["Title"]
+                    Font: =App.Theme.Font
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =App.Theme.Colors.Lighter70
+                    InputTextPlaceholder: ="Chọn sản phẩm"
+                    IsSearchable: =false
+                    Items: |-
+                        =/*Filter(
+                            'mWarehouse.Products',
+                            supplierID = ComboBox4_3.Selected.ID And !(ID exactin Filter(
+                                'mWarehouse.ImportDetails',
+                                importID exactin Filter(
+                                    'mWarehouse.Imports',
+                                    status.Value = "Chờ duyệt"
+                                ).importCode
+                            ).productID)And !(ID exactin Filter(
+                                'mWarehouse.ImportDetails',
+                                importID = Label1_29.Text
+                            ).productID)
+                        )*/
+                        //And LookUp('mWarehouse.Imports',importCode exactin 'mWarehouse.ImportDetails'.importID).status.Value = "Chờ duyệt"))
+                        Filter('mWarehouse.Products',status.Value = "Kinh doanh" And !(productCode exactin Filter('mWarehouse.ExportDetails',exportID = Label1_33.Text).productCode))
+                    NoSelectionText: ="Chọn sản phẩm"
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =App.Theme.Colors.Darker30
+                    SearchFields: =["ComplianceAssetId"]
+                    SearchItems: |-
+                        =Search(/*Filter(
+                            'mWarehouse.Products',
+                            supplierID = ComboBox4_3.Selected.ID And !(ID exactin Filter(
+                                'mWarehouse.ImportDetails',
+                                importID exactin Filter(
+                                    'mWarehouse.Imports',
+                                    status.Value = "Chờ duyệt"
+                                ).importCode
+                            ).productID)And !(ID exactin Filter(
+                                'mWarehouse.ImportDetails',
+                                importID = Label1_29.Text
+                            ).productID)
+                        )*/
+                        //And LookUp('mWarehouse.Imports',importCode exactin 'mWarehouse.ImportDetails'.importID).status.Value = "Chờ duyệt"))
+                        Filter('mWarehouse.Products',status.Value = "Kinh doanh" ),ComboBox5_4.SearchText,ComplianceAssetId)
+                    SelectionFill: =App.Theme.Colors.Primary
+                    SelectMultiple: =false
+                    Size: =13
+                    Width: =380
+                    X: =419
+                    Y: =16
+                    ZIndex: =6
+
+                Icon6_4 As icon.Check:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(54, 176, 75, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    Height: =35
+                    Icon: =Icon.Check
+                    OnSelect: |-
+                        =//false
+                        /*If(
+                            IsBlank(ComboBox4_3.Selected.ID) Or IsBlank(ComboBox5_3.Selected.ID) Or IsBlank(NumberInput1_3.Value) ,
+                            Notify("Hãy điền đủ thông tin !"),
+                            Patch(
+                                'mWarehouse.ImportDetails',
+                                Defaults('mWarehouse.ImportDetails'),
+                                {
+                                    Title: ComboBox5_3.Selected.Title,
+                                    productCode: ComboBox5_3.Selected.productCode,
+                                    importID: Label1_29.Text,
+                                    productID: ComboBox5_3.Selected.ID,
+                                    quantity: Value(NumberInput1_3.Value),
+                                    priceImport: Value(ComboBox5_3.Selected.priceImport),
+                                    totalPrice: Value(ComboBox5_3.Selected.priceImport * NumberInput1_3.Value)
+                                }
+                            );
+                            Reset(ComboBox5_3);
+                            Reset(NumberInput1_3);
+                            Notify("Thêm thành công!")
+                        )*/
+                        If(
+                            IsBlank(ComboBox5_4.Selected.ID) Or NumberInput1_4.Value = 0,
+                            Notify("Hãy điền đủ thông tin !"),
+                            Patch(
+                                'mWarehouse.ExportDetails',
+                                Defaults('mWarehouse.ExportDetails'),
+                                {
+                                    Title: ComboBox5_4.Selected.Title,
+                                    productCode: ComboBox5_4.Selected.productCode,
+                                    exportID: Label1_33.Text,
+                                    productID: ComboBox5_4.Selected.ID,
+                                    quantity: Value(NumberInput1_4.Value),
+                                    priceExport: Value(ComboBox5_4.Selected.priceExport),
+                                    totalPrice: Value(ComboBox5_4.Selected.priceExport * NumberInput1_4.Value)
+                                }
+                            );
+                            Reset(ComboBox5_4);
+                            Reset(NumberInput1_4);
+                            Notify("Thêm thành công!")
+                        )
+                    Width: =35
+                    X: =967
+                    Y: =16
+                    ZIndex: =8
+
+                "NumberInput1_4 As 'Number input'":
+                    Align: ='NumberInput.Align'.Start
+                    BasePaletteColor: =RGBA(5, 102, 178, 1)
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =40
+                    Max: |
+                        =LookUp('mWarehouse.Products',ID = ComboBox5_4.Selected.ID).quantity
+                    Min: =1
+                    Value: |
+                        =LookUp('mWarehouse.Products',ID = ComboBox5_4.Selected.ID).quantity
+                    Width: =100
+                    X: =833
+                    Y: =16
+                    ZIndex: =9
+
+            Container17_5 As groupContainer.manualLayoutContainer:
+                DropShadow: =DropShadow.Semibold
+                Height: =80
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =1138
+                Y: =55
+                ZIndex: =5
+
+                Label11_5 As label:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Size: =13
+                    Text: ="Nội dung"
+                    Width: =200
+                    X: =20
+                    Y: =20
+                    ZIndex: =1
+
+                TextInput3_5 As text:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    BorderThickness: =2
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    FocusedBorderThickness: =4
+                    Font: =App.Theme.Font
+                    HintText: ="Nhập nội dung đơn nhập hàng"
+                    HoverBorderColor: =App.Theme.Colors.Darker40
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =App.Theme.Colors.Lighter70
+                    Size: =13
+                    Width: =571
+                    X: =105
+                    Y: =20
+                    ZIndex: =2
+
+                Label12_15 As label:
+                    Align: =Align.Center
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Size: =13
+                    Text: |-
+                        ="Số lượng:"
+                    Width: =100
+                    X: =676
+                    Y: =20
+                    ZIndex: =3
+
+                Label12_16 As label:
+                    Align: =Align.Center
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    Size: =13
+                    Text: =Sum(Filter('mWarehouse.ExportDetails',exportID = Label1_33.Text),quantity)
+                    Width: =80
+                    X: =749
+                    Y: =20
+                    ZIndex: =4
+
+                Label13_20 As label:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Size: =13
+                    Text: |-
+                        ="Tổng giá:"
+                    Width: =100
+                    X: =829
+                    Y: =20
+                    ZIndex: =5
+
+                Label13_21 As label:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    Size: =13
+                    Text: |-
+                        =Concatenate(Text(Sum(Filter('mWarehouse.ExportDetails',exportID = Label1_33.Text),totalPrice),"###,###")," VNĐ")
+                    Width: =200
+                    X: =922
+                    Y: =20
+                    ZIndex: =6
+
+            Container16_11 As groupContainer.manualLayoutContainer:
+                DropShadow: =DropShadow.Regular
+                Height: =70
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =1138
+                Y: =206
+                ZIndex: =6
+
+                Label10_71 As label:
+                    Align: =Align.Center
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Size: =13
+                    Text: ="Tên sản phẩm"
+                    Width: =300
+                    X: =20
+                    Y: =16
+                    ZIndex: =2
+
+                Label10_72 As label:
+                    Align: =Align.Center
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Size: =13
+                    Text: ="Loại"
+                    X: =390
+                    Y: =16
+                    ZIndex: =3
+
+                Label10_73 As label:
+                    Align: =Align.Center
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Size: =13
+                    Text: ="Giá nhập"
+                    X: =567
+                    Y: =16
+                    ZIndex: =4
+
+                Label10_74 As label:
+                    Align: =Align.Center
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Size: =13
+                    Text: ="Số lượng"
+                    X: =723
+                    Y: =16
+                    ZIndex: =5
+
+                Label10_75 As label:
+                    Align: =Align.Center
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Size: =13
+                    Text: ="Tổng trị giá"
+                    X: =884
+                    Y: =16
+                    ZIndex: =6
+
+            Label1_33 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Semibold
+                Size: =13
+                Text: |
+                    =Concatenate("HD_",Text( Right(Last('mWarehouse.Exports').exportCode,3)+1,"000"))
+                Width: =200
+                X: =192
+                Y: =9
+                ZIndex: =7
+
+            Button10_11 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =App.Theme.Colors.Primary
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Semibold
+                HoverBorderColor: =App.Theme.Colors.Darker10
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =App.Theme.Colors.Darker10
+                OnSelect: |-
+                    =UpdateContext({ShowXacNhanX_Add:true})
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                Size: =15
+                Text: ="Xác nhận"
+                X: =859
+                Y: =579
+                ZIndex: =8
+
+            Button10_10 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =App.Theme.Colors.Primary
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Semibold
+                HoverBorderColor: =App.Theme.Colors.Darker10
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =App.Theme.Colors.Darker10
+                OnSelect: |-
+                    =UpdateContext({ShowHuyBoX_Add:true})
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                Size: =15
+                Text: ="Hủy bỏ"
+                X: =672
+                Y: =579
+                ZIndex: =9
+
+        Rectangle3_9 As rectangle:
+            BorderColor: =App.Theme.Colors.Darker40
+            Fill: =RGBA(202, 202, 202, 0.5)
+            Height: =Parent.Height
+            Visible: =ShowHuyBoX_Add
+            Width: =Parent.Width
+            ZIndex: =40
+
+        HuyBoX_Add_1 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Container9_14.Height / 2.5
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =ShowHuyBoX_Add
+            Width: =Container9_14.Width / 1.5
+            X: =HuyBoX_Add_1.Width /2.5
+            Y: =HuyBoX_Add_1.Height / 1.1
+            ZIndex: =41
+
+            Label1_31 As label:
+                Align: =Align.Center
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Bold
+                Height: =70
+                Size: =25
+                Text: ="Chắc chắn hủy bỏ đơn nhập hàng này không ?"
+                Width: =750
+                X: =5
+                Y: =20
+                ZIndex: =1
+
+            Button11_19 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =App.Theme.Colors.Primary
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Bold
+                HoverBorderColor: =App.Theme.Colors.Darker10
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =App.Theme.Colors.Darker10
+                OnSelect: |
+                    =RemoveIf(
+                        'mWarehouse.ExportDetails',
+                        exportID = Label1_33.Text
+                    );
+                    Notify("Hủy đơn nhập thành công!");
+                    UpdateContext({ShowThemDonX: false});
+                    UpdateContext({ShowHuyBoX_Add: false});
+                    Reset(TextInput3_5);
+                    Reset(ComboBox4_4);
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                Size: =15
+                Text: ="Có"
+                X: =508
+                Y: =167
+                ZIndex: =2
+
+            Button11_18 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =App.Theme.Colors.Primary
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Semibold
+                HoverBorderColor: =App.Theme.Colors.Darker10
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =App.Theme.Colors.Darker10
+                OnSelect: |-
+                    =UpdateContext({ShowHuyBoX_Add:false})
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                Size: =15
+                Text: ="Không"
+                X: =105
+                Y: =167
+                ZIndex: =3
+
+        Rectangle3_8 As rectangle:
+            BorderColor: =App.Theme.Colors.Darker40
+            Fill: =RGBA(202, 202, 202, 0.5)
+            Height: =Parent.Height
+            Visible: =ShowXacNhanX_Add
+            Width: =Parent.Width
+            ZIndex: =42
+
+        XacNhanX_add_1 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Container9_14.Height / 2.5
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =ShowXacNhanX_Add
+            Width: =Container9_14.Width / 1.5
+            X: =XacNhanX_add_1.Width /2.5
+            Y: =XacNhanX_add_1.Height / 1.1
+            ZIndex: =43
+
+            Label1_30 As label:
+                Align: =Align.Center
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Bold
+                Height: =70
+                Size: =23
+                Text: ="Chắc chắn hoàn thành đơn xuất hàng này không ?"
+                Width: =750
+                X: =5
+                Y: =20
+                ZIndex: =1
+
+            Button11_17 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                DisabledBorderColor: =RGBA(214, 221, 224, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =App.Theme.Colors.Primary
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Bold
+                HoverBorderColor: =App.Theme.Colors.Darker10
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =App.Theme.Colors.Darker10
+                OnSelect: |-
+                    =If(
+                        IsBlank(TextInput3_5.Text) Or IsEmpty(Gallery2_5.AllItems) Or IsBlank(ComboBox4_4.Selected.ID),
+                        Notify("Không được để trống !"),
+                        Patch(
+                            'mWarehouse.Exports',
+                            Defaults('mWarehouse.Exports'),
+                            {
+                                Title: TextInput3_5.Text,
+                                exportCode: Label1_33.Text,
+                                customerID: ComboBox4_4.Selected.ID,
+                                userID: LookUp(
+                                    'mWarehouse.Users',
+                                    account = TextInput1.Text
+                                ).ID,
+                                status: {Value: "Chờ duyệt"},
+                                amount: Value(Label12_16.Text),
+                                totalPrice: Value(
+                                    Sum(
+                                        Filter(
+                                            'mWarehouse.ExportDetails',
+                                            exportID = Label1_33.Text
+                                        ),
+                                        totalPrice
+                                    )
+                                ),
+                                address: ComboBox4_4.Selected.address
+                            }
+                        );
+                        Notify("Hoàn thành đơn xuất !");
+                        UpdateContext({ShowThemDonX: false});
+                        UpdateContext({ShowTTKH_Add: false});
+                        UpdateContext({ShowXacNhanX_Add: false});
+                        Reset(ComboBox4_4);
+                        Reset(TextInput3_5);
+                        //false
+                    If(
+                            TabList1.Selected.Value = "Tất cả",
+                            ClearCollect(
+                                info,
+                                'mWarehouse.Imports'
+                            );
+                            Collect(
+                                info,
+                                'mWarehouse.Exports'
+                            ),
+                            If(
+                                TabList1.Selected.Value = "Đơn nhập",
+                                ClearCollect(
+                                    info,
+                                    'mWarehouse.Imports'
+                                ),
+                                If(
+                                    TabList1.Selected.Value = "Đơn xuất",
+                                    ClearCollect(
+                                        info,
+                                        'mWarehouse.Exports'
+                                    )
+                                )
+                            )
+                        )
+                    )
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                Size: =15
+                Text: ="Có"
+                X: =508
+                Y: =167
+                ZIndex: =2
+
+            Button11_16 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =App.Theme.Colors.Primary
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Semibold
+                HoverBorderColor: =App.Theme.Colors.Darker10
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =App.Theme.Colors.Darker10
+                OnSelect: |-
+                    =UpdateContext({ShowXacNhanX_Add:false})
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                Size: =15
+                Text: ="Không"
+                X: =105
+                Y: =167
+                ZIndex: =3
+
+        Rectangle1_30 As rectangle:
+            BorderColor: =RGBA(202, 202, 202, 1)
+            Fill: =RGBA(202, 202, 202, 0.5)
+            Height: =Parent.Height
+            OnSelect: |-
+                =//UpdateContext({ShowThemSP: false})
+            Visible: =ShowThemSPdemo1
+            Width: =Parent.Width
+            ZIndex: =44
+
+        SpDemo1_2 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height/1.2
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =ShowThemSPdemo1
+            Width: =Parent.Width/1.2
+            X: =Rectangle1_30.Width/12
+            Y: =Rectangle1_30.Height/12
+            ZIndex: =45
+
+            Icon4_16 As icon.Cancel:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =Color.Red
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =35
+                Icon: =Icon.Cancel
+                OnSelect: |
+                    =UpdateContext({ShowThemSPdemo1: false});
+                Width: =35
+                X: =1091
+                Y: =12
+                ZIndex: =2
+
+            Label2_11 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Size: =13
+                Text: =
+                X: =60
+                Y: =32
+                ZIndex: =6
+
+            Label10_76 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Semibold
+                Size: =13
+                Text: ="Nhà cung cấp"
+                Width: =130
+                X: =10
+                Y: =19
+                ZIndex: =7
+
+            Container12_10 As groupContainer.manualLayoutContainer:
+                DropShadow: =DropShadow.Semibold
+                Height: =580
+                RadiusBottomLeft: =15
+                RadiusBottomRight: =15
+                RadiusTopLeft: =15
+                RadiusTopRight: =15
+                Width: =370
+                X: =7
+                Y: =59
+                ZIndex: =37
+
+                Container11_174 As groupContainer.manualLayoutContainer:
+                    Height: |
+                        =Label16_174.Height+TextInput5_146.Height+10
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =350
+                    X: =10
+                    Y: =300
+                    ZIndex: =2
+
+                    Label16_174 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Size: =13
+                        Text: ="Số điện thoại"
+                        Width: =Parent.Width
+                        Y: =4
+                        ZIndex: =1
+
+                    TextInput5_146 As text:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        BorderThickness: =2
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =Text(ComboBox3_11.Selected.phone,"0000000000")
+                        DisabledBorderColor: =RGBA(9, 33, 98, 1)
+                        DisabledColor: =RGBA(0, 0, 0, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        DisplayMode: =DisplayMode.Disabled
+                        FocusedBorderThickness: =4
+                        Font: =App.Theme.Font
+                        Height: =50
+                        HintText: ="Số điện thoại"
+                        HoverBorderColor: =App.Theme.Colors.Darker40
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
+                        Size: =13
+                        Width: =Parent.Width
+                        Y: =44
+                        ZIndex: =3
+
+                Container11_173 As groupContainer.manualLayoutContainer:
+                    Height: |
+                        =Label16_173.Height+TextInput5_145.Height+10
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =350
+                    X: =10
+                    Y: =200
+                    ZIndex: =3
+
+                    Label16_173 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Size: =13
+                        Text: ="Tên người đại diện"
+                        Width: =Parent.Width
+                        Y: =4
+                        ZIndex: =1
+
+                    TextInput5_145 As text:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        BorderThickness: =2
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ComboBox3_11.Selected.representative
+                        DisabledBorderColor: =RGBA(9, 33, 98, 1)
+                        DisabledColor: =RGBA(0, 0, 0, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        DisplayMode: =DisplayMode.Disabled
+                        FocusedBorderThickness: =4
+                        Font: =App.Theme.Font
+                        Height: =50
+                        HintText: ="Tên người đại diện"
+                        HoverBorderColor: =App.Theme.Colors.Darker40
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
+                        Size: =13
+                        Width: =Parent.Width
+                        Y: =44
+                        ZIndex: =3
+
+                Container11_175 As groupContainer.manualLayoutContainer:
+                    Height: |
+                        =Label16_175.Height+TextInput5_147.Height+10
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =350
+                    X: =10
+                    Y: =400
+                    ZIndex: =4
+
+                    Label16_175 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Size: =13
+                        Text: ="Địa chỉ"
+                        Width: =Parent.Width
+                        Y: =4
+                        ZIndex: =1
+
+                    TextInput5_147 As text:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        BorderThickness: =2
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ComboBox3_11.Selected.address
+                        DisabledBorderColor: =RGBA(9, 33, 98, 1)
+                        DisabledColor: =RGBA(0, 0, 0, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        DisplayMode: =DisplayMode.Disabled
+                        FocusedBorderThickness: =4
+                        Font: =App.Theme.Font
+                        Height: =95
+                        HintText: ="Địa chỉ nhà cung cấp"
+                        HoverBorderColor: =App.Theme.Colors.Darker40
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
+                        Mode: =TextMode.MultiLine
+                        Size: =13
+                        Width: =Parent.Width
+                        Y: =45
+                        ZIndex: =3
+
+                Container11_172 As groupContainer.manualLayoutContainer:
+                    Height: |
+                        =Label16_172.Height+TextInput5_144.Height+10
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =350
+                    X: =10
+                    Y: =100
+                    ZIndex: =5
+
+                    Label16_172 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Size: =13
+                        Text: ="Viết tắt"
+                        Width: =Parent.Width
+                        Y: =4
+                        ZIndex: =1
+
+                    TextInput5_144 As text:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        BorderThickness: =2
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =ComboBox3_11.Selected.shortcut
+                        DisabledBorderColor: =RGBA(9, 33, 98, 1)
+                        DisabledColor: =RGBA(0, 0, 0, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        DisplayMode: =DisplayMode.Disabled
+                        FocusedBorderThickness: =4
+                        Font: =App.Theme.Font
+                        Height: =50
+                        HintText: ="Tên nhà cung cấp viết tắt"
+                        HoverBorderColor: =App.Theme.Colors.Darker40
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
+                        Size: =13
+                        Width: =Parent.Width
+                        Y: =44
+                        ZIndex: =3
+
+                Container11_12 As groupContainer.manualLayoutContainer:
+                    Height: |
+                        =Label16_12.Height+ComboBox3_11.Height+10
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =350
+                    X: =10
+                    ZIndex: =6
+
+                    Label16_12 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Semibold
+                        Size: =13
+                        Text: ="Tên nhà cung cấp"
+                        Width: =Parent.Width
+                        Y: =4
+                        ZIndex: =1
+
+                    ComboBox3_11 As combobox:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        ChevronBackground: =App.Theme.Colors.Primary
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronHoverBackground: =App.Theme.Colors.Darker10
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["Title"]
+                        Font: =App.Theme.Font
+                        Height: =60
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
+                        InputTextPlaceholder: ="Chọn loại sản phẩm"
+                        Items: ='mWarehouse.Suppliers'
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =App.Theme.Colors.Darker30
+                        SearchFields: =["Title"]
+                        SearchItems: =Search('mWarehouse.Suppliers',ComboBox3_11.SearchText,Title)
+                        SelectionFill: =App.Theme.Colors.Primary
+                        SelectMultiple: =false
+                        Size: =13
+                        Width: =Parent.Width
+                        Y: =44
+                        ZIndex: =4
+
+            Container19_10 As groupContainer.manualLayoutContainer:
+                DropShadow: =DropShadow.Semibold
+                Height: =581
+                RadiusBottomLeft: =15
+                RadiusBottomRight: =15
+                RadiusTopLeft: =15
+                RadiusTopRight: =15
+                Width: =750
+                X: =388
+                Y: =59
+                ZIndex: =38
+
+                Container11_177 As groupContainer.manualLayoutContainer:
+                    Height: |
+                        =Label16_177.Height+TextInput5_149.Height+10
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =350
+                    X: =380
+                    ZIndex: =1
+
+                    Label16_177 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Size: =13
+                        Text: ="Tên sản phẩm"
+                        Width: =Parent.Width
+                        Y: =4
+                        ZIndex: =1
+
+                    TextInput5_149 As text:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        BorderThickness: =2
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =""
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =4
+                        Font: =App.Theme.Font
+                        Height: =50
+                        HintText: ="Tên sản phẩm"
+                        HoverBorderColor: =App.Theme.Colors.Darker40
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
+                        Size: =13
+                        Width: =Parent.Width
+                        Y: =44
+                        ZIndex: =3
+
+                Container11_176 As groupContainer.manualLayoutContainer:
+                    Height: |
+                        =Label16_176.Height+TextInput5_148.Height+10
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =350
+                    X: =10
+                    ZIndex: =2
+
+                    Label16_176 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Size: =13
+                        Text: ="Mã code"
+                        Width: =Parent.Width
+                        Y: =4
+                        ZIndex: =1
+
+                    TextInput5_148 As text:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        BorderThickness: =2
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: |-
+                            =//Parent.Default
+                            //Concatenate(Loai_Nam_VT_001)
+                            Concatenate(If(ComboBox3_12.Selected.Value = "Điện thoại","DT"),If(ComboBox3_12.Selected.Value = "Tablet","TL"),If(ComboBox3_12.Selected.Value = "Laptop","LT"),"_",Right(TextInput5_153.Text,2),"_",TextInput5_144.Text,"_",Text( Right(Last('mWarehouse.Products').productCode,3)+1,"000"))
+                        DisabledBorderColor: =RGBA(9, 33, 98, 1)
+                        DisabledColor: =RGBA(0, 0, 0, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        DisplayMode: =DisplayMode.Disabled
+                        FocusedBorderThickness: =4
+                        Font: =App.Theme.Font
+                        Height: =50
+                        HintText: ="Mã code sản phẩm"
+                        HoverBorderColor: =App.Theme.Colors.Darker40
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
+                        Size: =13
+                        Width: =Parent.Width
+                        Y: =44
+                        ZIndex: =3
+
+                Container11_178 As groupContainer.manualLayoutContainer:
+                    Height: |
+                        =Label16_178.Height+ComboBox3_12.Height+10
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =350
+                    X: =10
+                    Y: =100
+                    ZIndex: =3
+
+                    Label16_178 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Size: =13
+                        Text: ="Loại sản phẩm"
+                        Width: =Parent.Width
+                        Y: =4
+                        ZIndex: =1
+
+                    ComboBox3_12 As combobox:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        ChevronBackground: =App.Theme.Colors.Primary
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronHoverBackground: =App.Theme.Colors.Darker10
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["Value"]
+                        Font: =App.Theme.Font
+                        Height: =50
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
+                        InputTextPlaceholder: ="Chọn loại sản phẩm"
+                        Items: =Choices([@'mWarehouse.Products'].category)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =App.Theme.Colors.Darker30
+                        SearchFields: =["Value"]
+                        SearchItems: =Choices('mWarehouse.Products'.category,ComboBox3_12.SearchText)
+                        SelectionFill: =App.Theme.Colors.Primary
+                        SelectMultiple: =false
+                        Size: =13
+                        Width: =Parent.Width
+                        Y: =44
+                        ZIndex: =4
+
+                Container11_179 As groupContainer.manualLayoutContainer:
+                    Height: |
+                        =Label16_179.Height+TextInput5_150.Height+10
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =350
+                    X: =380
+                    Y: =100
+                    ZIndex: =4
+
+                    Label16_179 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Size: =13
+                        Text: ="Thương hiệu"
+                        Width: =Parent.Width
+                        Y: =4
+                        ZIndex: =1
+
+                    TextInput5_150 As text:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        BorderThickness: =2
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =""
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =4
+                        Font: =App.Theme.Font
+                        Height: =50
+                        HintText: ="Thương hiệu"
+                        HoverBorderColor: =App.Theme.Colors.Darker40
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
+                        Size: =13
+                        Width: =Parent.Width
+                        Y: =44
+                        ZIndex: =3
+
+                Container11_181 As groupContainer.manualLayoutContainer:
+                    Height: |
+                        =Label16_181.Height+TextInput5_152.Height+10
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =350
+                    X: =380
+                    Y: =201
+                    ZIndex: =5
+
+                    Label16_181 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Size: =13
+                        Text: ="Giá xuất"
+                        Width: =Parent.Width
+                        Y: =4
+                        ZIndex: =1
+
+                    TextInput5_152 As text:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        BorderThickness: =2
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =""
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =4
+                        Font: =App.Theme.Font
+                        Format: =TextFormat.Number
+                        Height: =50
+                        HintText: ="Giá xuất"
+                        HoverBorderColor: =App.Theme.Colors.Darker40
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
+                        Size: =13
+                        Width: =Parent.Width
+                        Y: =44
+                        ZIndex: =3
+
+                Container11_180 As groupContainer.manualLayoutContainer:
+                    Height: |
+                        =Label16_180.Height+TextInput5_151.Height+10
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =350
+                    X: =10
+                    Y: =200
+                    ZIndex: =6
+
+                    Label16_180 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Size: =13
+                        Text: ="Giá nhập"
+                        Width: =Parent.Width
+                        Y: =4
+                        ZIndex: =1
+
+                    TextInput5_151 As text:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        BorderThickness: =2
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =""
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =4
+                        Font: =App.Theme.Font
+                        Format: =TextFormat.Number
+                        Height: =50
+                        HintText: ="Giá nhập"
+                        HoverBorderColor: =App.Theme.Colors.Darker40
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
+                        Size: =13
+                        Width: =Parent.Width
+                        Y: =44
+                        ZIndex: =3
+
+                Container11_182 As groupContainer.manualLayoutContainer:
+                    Height: |
+                        =Label16_182.Height+TextInput5_153.Height+10
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =350
+                    X: =10
+                    Y: =300
+                    ZIndex: =7
+
+                    Label16_182 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Size: =13
+                        Text: ="Năm ra mắt"
+                        Width: =Parent.Width
+                        Y: =4
+                        ZIndex: =1
+
+                    TextInput5_153 As text:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        BorderThickness: =2
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =""
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =4
+                        Font: =App.Theme.Font
+                        Format: =TextFormat.Number
+                        Height: =50
+                        HintText: ="Năm ra mắt"
+                        HoverBorderColor: =App.Theme.Colors.Darker40
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =App.Theme.Colors.Lighter70
+                        Size: =13
+                        Width: =Parent.Width
+                        Y: =44
+                        ZIndex: =3
+
+                Button6_11 As button:
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Fill: =RGBA(152, 208, 70, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Bold
+                    HoverBorderColor: =RGBA(127, 178, 57, 1)
+                    HoverColor: =RGBA(255, 255, 255, 1)
+                    HoverFill: =RGBA(127, 178, 57, 1)
+                    OnSelect: |-
+                        =If(
+                            IsBlank(TextInput5_149.Text) Or IsBlank(TextInput5_148.Text) Or IsBlank(TextInput5_150.Text) Or IsBlank(TextInput5_151.Text) Or IsBlank(TextInput5_153.Text) Or IsBlank(ComboBox3_12.Selected.Value) Or IsBlank(TextInput5_152.Text),
+                            Notify("Không thể để trống các trường");
+                            ,
+                            Patch(
+                                'mWarehouse.Products',
+                                Defaults('mWarehouse.Products'),
+                                {
+                                    Title: TextInput5_149.Text,
+                                    supplierID: ComboBox4.Selected.ID,
+                                    productCode: TextInput5_148.Text,
+                                    category: {Value: ComboBox3_12.Selected.Value},
+                                    status: {Value: "Đang chờ"},
+                                    priceImport: Value(TextInput5_151.Text),
+                                    priceExport: Value(TextInput5_152.Text),
+                                    brand: TextInput5_150.Text,
+                                    quantity: Value(0),
+                                    year: Value(TextInput5_153.Text),
+                                    image: UploadedImage1_13.Image
+                                }
+                            );
+                            UpdateContext({ShowThemSPdemo2: false});
+                            Notify("Thêm mới thành công. Sản phẩm cần được phê duyệt trước khi được thêm vào báo giá.");
+                            
+                        )
+                    PressedBorderColor: =App.Theme.Colors.Darker40
+                    PressedColor: =Self.Color
+                    PressedFill: =App.Theme.Colors.Darker40
+                    Size: =15
+                    Text: ="Thêm mới"
+                    X: =489
+                    Y: =446
+                    ZIndex: =9
+
+                Container11_183 As groupContainer.manualLayoutContainer:
+                    Height: |
+                        =Label16_183.Height+AddMediaButton1_13.Height+10
+                    RadiusBottomLeft: =15
+                    RadiusBottomRight: =15
+                    RadiusTopLeft: =15
+                    RadiusTopRight: =15
+                    Width: =350
+                    X: =14
+                    Y: =394
+                    ZIndex: =10
+
+                    Label16_183 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        Size: =13
+                        Text: ="Hình ảnh"
+                        Width: =Parent.Width
+                        Y: =4
+                        ZIndex: =1
+
+                    AddMediaWithImage1_13 As group:
+                        Height: =5
+                        Width: =5
+                        X: =40
+                        Y: =40
+                        ZIndex: =4
+
+                        UploadedImage1_13 As image:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: =AddMediaButton1_13.Height
+                            Image: =If(IsBlank(AddMediaButton1_13.Media), SampleImage, AddMediaButton1_13.Media)
+                            ImagePosition: =ImagePosition.Fill
+                            Width: =AddMediaButton1_13.Width
+                            X: =AddMediaButton1_13.X
+                            Y: =AddMediaButton1_13.Y
+                            ZIndex: =5
+
+                        AddMediaButton1_13 As addMedia:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            ChangePictureText: ="Đổi hình"
+                            Color: =RGBA(0, 0, 0, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =130
+                            Reset: =clearImage
+                            Size: =15
+                            Text: ="Chạm để thêm hình mới"
+                            Width: =Parent.Width
+                            Y: |
+                                =44
+                            ZIndex: =6
+
+            Label10_77 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Semibold
+                Size: =13
+                Text: ="Sản phẩm"
+                Width: =130
+                X: =408
+                Y: =19
+                ZIndex: =39
+
     DonXuat_add As group:
         Height: =5
         Width: =5
@@ -6953,6 +8968,7 @@ YeuCau As screen:
                             UpdateContext({ShowThemKH2: true});
                             UpdateContext({ShowTTKH_Add: true})
                         )
+                    Tooltip: ="Thêm mới thông tin khách hàng"
                     Width: =35
                     X: =1084
                     Y: =16
