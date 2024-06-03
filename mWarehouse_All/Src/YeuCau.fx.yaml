@@ -222,6 +222,79 @@ YeuCau As screen:
                 Y: =5
                 ZIndex: =6
 
+            "TabList3 As 'Tab list'.pcfdataset":
+                DisplayMode: =DisplayMode.Edit
+                Height: =55
+                Items: =["Tất cả","Chờ duyệt", "Đơn hàng", "Từ chối","Hoàn thành"]
+                OnChange: |-
+                    =If(
+                        TabList1.Selected.Value = "Tất cả",
+                        If(
+                            TabList3.Selected.Value = "Tất cả",
+                            ClearCollect(
+                                info,
+                                'mWarehouse.Imports'
+                            );
+                            Collect(
+                                info,
+                                'mWarehouse.Exports'
+                            ),
+                            ClearCollect(
+                                info,
+                                Filter(
+                                    'mWarehouse.Imports',
+                                    status.Value = TabList3.Selected.Value
+                                )
+                            );
+                            Collect(
+                                info,
+                                Filter(
+                                    'mWarehouse.Exports',
+                                    status.Value = TabList3.Selected.Value
+                                )
+                            )
+                        ),
+                        If(
+                            TabList1.Selected.Value = "Đơn nhập",
+                            If(
+                                TabList3.Selected.Value = "Tất cả",
+                                ClearCollect(
+                                    info,
+                                    'mWarehouse.Imports'
+                                ),
+                                ClearCollect(
+                                    info,
+                                    Filter(
+                                        'mWarehouse.Imports',
+                                        status.Value = TabList3.Selected.Value
+                                    )
+                                )
+                            ),
+                            If(
+                                TabList1.Selected.Value = "Đơn xuất",
+                                If(
+                                    TabList3.Selected.Value = "Tất cả",
+                                    ClearCollect(
+                                        info,
+                                        'mWarehouse.Exports'
+                                    ),
+                                    ClearCollect(
+                                        info,
+                                        Filter(
+                                            'mWarehouse.Exports',
+                                            status.Value = TabList3.Selected.Value
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                OnSelect: =Set(varTab1,Self.Selected)
+                Width: =490
+                X: =650
+                Y: =8
+                ZIndex: =7
+
         Container5_1 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Semilight
             Height: |

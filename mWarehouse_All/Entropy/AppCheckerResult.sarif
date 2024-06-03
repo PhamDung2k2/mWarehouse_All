@@ -15343,6 +15343,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "YeuCau.Container4_1.Container2_1.TabList3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "YeuCau.Container4_1.Container2_1.TabList3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "YeuCau",
+                "type": "YeuCau.Container4_1.Container2_1.TabList3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.cyborg-isometric-3d-rendering-of-cyborgs-engaged-in-automated-work-at-warehouse_9631074"
                 }
               ],
@@ -15943,6 +15973,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "YeuCau.Container4_1.Container2_1.TabList3.OnChange"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "YeuCau.Container4_1.Container2_1.TabList3.OnChange",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnChange",
+                "module": "YeuCau",
+                "type": "YeuCau.Container4_1.Container2_1.TabList3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "YeuCau.Container4_1.Container2_1.TabList3.OnChange"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "YeuCau.Container4_1.Container2_1.TabList3.OnChange",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnChange",
+                "module": "YeuCau",
+                "type": "YeuCau.Container4_1.Container2_1.TabList3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "DuyetDon.OnVisible"
                 }
               ],
@@ -16346,6 +16436,66 @@
                 "member": "OnSelect",
                 "module": "YeuCau",
                 "type": "YeuCau.XacNhan1_1.Button11_9"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "YeuCau.Container4_1.Container2_1.TabList3.OnChange"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "YeuCau.Container4_1.Container2_1.TabList3.OnChange",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnChange",
+                "module": "YeuCau",
+                "type": "YeuCau.Container4_1.Container2_1.TabList3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "YeuCau.Container4_1.Container2_1.TabList3.OnChange"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "YeuCau.Container4_1.Container2_1.TabList3.OnChange",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnChange",
+                "module": "YeuCau",
+                "type": "YeuCau.Container4_1.Container2_1.TabList3"
               }
             }
           ],
