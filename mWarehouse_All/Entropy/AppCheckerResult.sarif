@@ -2494,6 +2494,86 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "YeuCau.CTDonX_Update.Container16_10.NumberInput1_4.Value"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "YeuCau.CTDonX_Update.Container16_10.NumberInput1_4.Value",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 7,
+                  "charOffset": 185,
+                  "snippet": {
+                    "text": "exactin"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Value",
+                "module": "YeuCau",
+                "type": "YeuCau.CTDonX_Update.Container16_10.NumberInput1_4"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "LookUp"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "YeuCau.CTDonX_Update.Container16_10.NumberInput1_4.Value"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "YeuCau.CTDonX_Update.Container16_10.NumberInput1_4.Value",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 3,
+                  "charOffset": 172,
+                  "snippet": {
+                    "text": "And"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Value",
+                "module": "YeuCau",
+                "type": "YeuCau.CTDonX_Update.Container16_10.NumberInput1_4"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "LookUp"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "YeuCau.SpDemo1_2.Container12_10.Container11_12.ComboBox3_11.SearchItems"
                 }
               ],

@@ -7521,8 +7521,14 @@ YeuCau As screen:
                     Max: |
                         =LookUp('mWarehouse.Products',ID = ComboBox5_4.Selected.ID).quantity
                     Min: =1
-                    Value: |
-                        =LookUp('mWarehouse.Products',ID = ComboBox5_4.Selected.ID).quantity
+                    Value: |-
+                        =LookUp(
+                            'mWarehouse.Products',
+                            ID = ComboBox5_4.Selected.ID
+                        ).quantity - LookUp(
+                            'mWarehouse.ExportDetails',
+                            productCode = ComboBox5_4.Selected.productCode And exportID exactin 'mWarehouse.Exports'.exportCode
+                        ).quantity
                     Width: =100
                     X: =833
                     Y: =16
@@ -7736,7 +7742,7 @@ YeuCau As screen:
                 PressedColor: =Self.Color
                 PressedFill: =App.Theme.Colors.Darker40
                 Size: =15
-                Text: ="Xác nhận"
+                Text: ="Cập nhật"
                 X: =859
                 Y: =579
                 ZIndex: =8
@@ -7758,7 +7764,7 @@ YeuCau As screen:
                 PressedColor: =Self.Color
                 PressedFill: =App.Theme.Colors.Darker40
                 Size: =15
-                Text: ="Hủy bỏ"
+                Text: ="Xóa đơn"
                 X: =672
                 Y: =579
                 ZIndex: =9
@@ -7794,7 +7800,7 @@ YeuCau As screen:
                 FontWeight: =FontWeight.Bold
                 Height: =70
                 Size: =25
-                Text: ="Chắc chắn hủy bỏ đơn nhập hàng này không ?"
+                Text: ="Chắc chắn hủy bỏ đơn xuất hàng này không ?"
                 Width: =750
                 X: =5
                 Y: =20
@@ -7816,7 +7822,11 @@ YeuCau As screen:
                         'mWarehouse.ExportDetails',
                         exportID = Label1_33.Text
                     );
-                    Notify("Hủy đơn nhập thành công!");
+                    RemoveIf(
+                        'mWarehouse.Exports',
+                        exportCode = Label1_33.Text
+                    );
+                    Notify("Hủy đơn xuất thành công!");
                     UpdateContext({ShowUpdateDonX: false});
                     UpdateContext({ShowHuyBoX_Update: false});
                     Reset(TextInput3_5);
