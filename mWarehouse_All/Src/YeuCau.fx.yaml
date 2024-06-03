@@ -1433,7 +1433,7 @@ YeuCau As screen:
             Height: =Parent.Height
             Visible: =ShowXacNhan1
             Width: =Parent.Width
-            ZIndex: =9
+            ZIndex: =8
 
         XacNhan1 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
@@ -1447,7 +1447,7 @@ YeuCau As screen:
             Width: =Container9_14.Width / 1.5
             X: =XacNhan1.Width /2.5
             Y: =XacNhan1.Height / 1.1
-            ZIndex: =10
+            ZIndex: =9
 
             Label1_18 As label:
                 Align: =Align.Center
@@ -1574,7 +1574,7 @@ YeuCau As screen:
                 =//UpdateContext({ShowThemSP: false})
             Visible: =ShowThemSPdemo1
             Width: =Parent.Width
-            ZIndex: =11
+            ZIndex: =10
 
         SpDemo1 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
@@ -1588,7 +1588,7 @@ YeuCau As screen:
             Width: =Parent.Width/1.2
             X: =Rectangle1_17.Width/12
             Y: =Rectangle1_17.Height/12
-            ZIndex: =12
+            ZIndex: =11
 
             Icon4_8 As icon.Cancel:
                 BorderColor: =App.Theme.Colors.Darker40
@@ -2322,9 +2322,9 @@ YeuCau As screen:
             Height: =Parent.Height
             OnSelect: |-
                 =//UpdateContext({ShowThemKH: false})
-            Visible: =ShowThemKH1
+            Visible: =ShowThemKH2
             Width: =Parent.Width
-            ZIndex: =24
+            ZIndex: =35
 
         Container9_16 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
@@ -2334,11 +2334,11 @@ YeuCau As screen:
             RadiusBottomRight: =4
             RadiusTopLeft: =4
             RadiusTopRight: =4
-            Visible: =ShowThemKH1
+            Visible: =ShowThemKH2
             Width: =Parent.Width/1.2
             X: =Rectangle1_20.Width/12
             Y: =Rectangle1_20.Height/12
-            ZIndex: =25
+            ZIndex: =36
 
             Label1_23 As label:
                 BorderColor: =App.Theme.Colors.Darker40
@@ -2361,7 +2361,7 @@ YeuCau As screen:
                 Height: =35
                 Icon: =Icon.Cancel
                 OnSelect: |-
-                    =UpdateContext({ShowThemKH1: false})
+                    =UpdateContext({ShowThemKH2: false})
                 Width: =35
                 X: =1091
                 Y: =12
@@ -2674,10 +2674,14 @@ YeuCau As screen:
                 HoverBorderColor: =App.Theme.Colors.Darker10
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =App.Theme.Colors.Darker10
-                OnSelect: |
-                    =SubmitForm(Form1_2);
-                    UpdateContext({ShowThemKH1:false});
-                    Notify("Thêm mới thành công")
+                OnSelect: |-
+                    =If(
+                        IsBlank(DataCardValue1_2.Text) Or IsBlank(DataCardValue2_2.Text) Or IsBlank(DataCardValue3_2.Text),
+                        Notify("Không được để trống !"),
+                        SubmitForm(Form1_2);
+                        UpdateContext({ShowThemKH2: false});
+                        Notify("Thêm mới thành công")
+                    )
                 PressedBorderColor: =App.Theme.Colors.Darker40
                 PressedColor: =Self.Color
                 PressedFill: =App.Theme.Colors.Darker40
@@ -2702,7 +2706,7 @@ YeuCau As screen:
                 =//UpdateContext({ShowThemSP: false})
             Visible: =ShowUpdateSP_DN1
             Width: =Parent.Width
-            ZIndex: =26
+            ZIndex: =12
 
         Container9_19 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
@@ -2716,7 +2720,7 @@ YeuCau As screen:
             Width: =Parent.Width/1.2
             X: =Rectangle1_23.Width/12
             Y: =Rectangle1_23.Height/12
-            ZIndex: =27
+            ZIndex: =13
 
             Icon4_11 As icon.Cancel:
                 BorderColor: =App.Theme.Colors.Darker40
@@ -3477,7 +3481,7 @@ YeuCau As screen:
                 =UpdateContext({ShowThemDon: false})
             Visible: =
             Width: =Parent.Width
-            ZIndex: =28
+            ZIndex: =14
 
         CTDonN_1 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
@@ -3491,7 +3495,7 @@ YeuCau As screen:
             Width: =Parent.Width/1.2
             X: =Rectangle1_18.Width/12
             Y: =Rectangle1_18.Height/12
-            ZIndex: =29
+            ZIndex: =15
 
             Label1_21 As label:
                 Align: =Align.Center
@@ -4099,7 +4103,7 @@ YeuCau As screen:
             Height: =Parent.Height
             Visible: =
             Width: =Parent.Width
-            ZIndex: =30
+            ZIndex: =16
 
         HuyBo1_1 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
@@ -4113,7 +4117,7 @@ YeuCau As screen:
             Width: =Container9_14.Width / 1.5
             X: =HuyBo1_1.Width /2.5
             Y: =HuyBo1_1.Height / 1.1
-            ZIndex: =31
+            ZIndex: =17
 
             Label1_20 As label:
                 Align: =Align.Center
@@ -4217,7 +4221,7 @@ YeuCau As screen:
             Height: =Parent.Height
             Visible: =
             Width: =Parent.Width
-            ZIndex: =32
+            ZIndex: =18
 
         XacNhan1_1 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
@@ -4231,7 +4235,7 @@ YeuCau As screen:
             Width: =Container9_14.Width / 1.5
             X: =XacNhan1_1.Width /2.5
             Y: =XacNhan1_1.Height / 1.1
-            ZIndex: =33
+            ZIndex: =19
 
             Label1_19 As label:
                 Align: =Align.Center
@@ -4356,7 +4360,7 @@ YeuCau As screen:
                 =//UpdateContext({ShowThemSP: false})
             Visible: =
             Width: =Parent.Width
-            ZIndex: =34
+            ZIndex: =20
 
     UpdateSP_DN_2 As group:
         Height: =5
@@ -4373,7 +4377,7 @@ YeuCau As screen:
                 =//UpdateContext({ShowThemSP: false})
             Visible: =ShowUpdateSP_DN2
             Width: =Parent.Width
-            ZIndex: =37
+            ZIndex: =21
 
         Container9_20 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
@@ -4387,7 +4391,7 @@ YeuCau As screen:
             Width: =Parent.Width/1.2
             X: =Rectangle1_24.Width/12
             Y: =Rectangle1_24.Height/12
-            ZIndex: =38
+            ZIndex: =22
 
             Icon4_13 As icon.Cancel:
                 BorderColor: =App.Theme.Colors.Darker40
@@ -5150,7 +5154,7 @@ YeuCau As screen:
                 =//UpdateContext({ShowThemSP: false})
             Visible: =ShowThemSPdemo3
             Width: =Parent.Width
-            ZIndex: =39
+            ZIndex: =23
 
         Container9_21 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
@@ -5164,7 +5168,7 @@ YeuCau As screen:
             Width: =Parent.Width/1.2
             X: =Rectangle1_25.Width/12
             Y: =Rectangle1_25.Height/12
-            ZIndex: =40
+            ZIndex: =24
 
             Icon4_12 As icon.Cancel:
                 BorderColor: =App.Theme.Colors.Darker40
@@ -5939,7 +5943,7 @@ YeuCau As screen:
                 =//UpdateContext({ShowThemSP: false})
             Visible: =ShowThemSPdemo4
             Width: =Parent.Width
-            ZIndex: =41
+            ZIndex: =25
 
         Container9_22 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
@@ -5953,7 +5957,7 @@ YeuCau As screen:
             Width: =Parent.Width/1.2
             X: =Rectangle1_26.Width/12
             Y: =Rectangle1_26.Height/12
-            ZIndex: =42
+            ZIndex: =26
 
             Icon4_14 As icon.Cancel:
                 BorderColor: =App.Theme.Colors.Darker40
@@ -6728,7 +6732,7 @@ YeuCau As screen:
                 =UpdateContext({ShowThemDon: false})
             Visible: =ShowThemDonN
             Width: =Parent.Width
-            ZIndex: =43
+            ZIndex: =27
 
         CTDonX_add As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
@@ -6738,11 +6742,11 @@ YeuCau As screen:
             RadiusBottomRight: =4
             RadiusTopLeft: =4
             RadiusTopRight: =4
-            Visible: =ShowThemDonN
+            Visible: =ShowThemDonX
             Width: =Parent.Width/1.2
             X: =Rectangle1_27.Width/12
             Y: =Rectangle1_27.Height/12
-            ZIndex: =44
+            ZIndex: =28
 
             Label1_28 As label:
                 Align: =Align.Center
@@ -6752,7 +6756,7 @@ YeuCau As screen:
                 Font: =App.Theme.Font
                 FontWeight: =FontWeight.Bold
                 Size: =13
-                Text: ="Mã đơn nhập"
+                Text: ="Mã đơn xuất"
                 Width: =200
                 X: =20
                 Y: =9
@@ -6766,7 +6770,7 @@ YeuCau As screen:
                 Height: =35
                 Icon: =Icon.Cancel
                 OnSelect: |-
-                    =UpdateContext({ShowThemDonN: false})
+                    =UpdateContext({ShowThemDonX: false})
                 Width: =35
                 X: =1086
                 Y: =16
@@ -6787,7 +6791,7 @@ YeuCau As screen:
                     BorderColor: =App.Theme.Colors.Darker40
                     DelayItemLoading: =true
                     Height: =283
-                    Items: =Filter('mWarehouse.ImportDetails',importID = Label1_29.Text)
+                    Items: =Filter('mWarehouse.ExportDetails',exportID = Label1_29.Text)
                     Layout: =Layout.Vertical
                     LoadingSpinner: =LoadingSpinner.Data
                     TemplateSize: =70
@@ -6888,7 +6892,7 @@ YeuCau As screen:
                                 =UpdateContext({ShowUpdateSP_DN1:true})
                             Size: =13
                             Text: |-
-                                =Concatenate(Text(ThisItem.priceImport,"###,###")," VNĐ")
+                                =Concatenate(Text(ThisItem.priceExport,"###,###")," VNĐ")
                             Width: =200
                             X: =533
                             Y: =2
@@ -6946,7 +6950,7 @@ YeuCau As screen:
                     Height: =35
                     Icon: =Icon.Add
                     OnSelect: |-
-                        =If(
+                        =/*If(
                             IsBlank(ComboBox4_3.Selected.ID),
                             Notify ("Hãy chọn nhà cung cấp!"),
                             UpdateContext({ShowThemSPdemo4: true});
@@ -6959,6 +6963,13 @@ YeuCau As screen:
                             Reset(NumberInput3_2);
                             Reset(AddMediaButton1_11);
                             
+                        )*/
+                        If(
+                            !IsBlank(ComboBox4_3.Selected.ID),
+                            Notify("Bỏ chọn khách hàng để có thể tạo thông tin khách hàng mới!"),
+                            ResetForm(Form1_2);
+                            NewForm(Form1_2);
+                            UpdateContext({ShowThemKH2: true})
                         )
                     Width: =35
                     X: =1084
@@ -6973,7 +6984,7 @@ YeuCau As screen:
                     ChevronHoverBackground: =App.Theme.Colors.Darker10
                     ChevronHoverFill: =RGBA(255, 255, 255, 1)
                     DefaultSelectedItems: |-
-                        =If (
+                        =/*If (
                             !IsEmpty(
                                 Filter(
                                     'mWarehouse.ImportDetails',
@@ -6990,24 +7001,27 @@ YeuCau As screen:
                                     ).productID
                                 ).supplierID
                             )
-                        )
+                        )*/
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
                     DisplayFields: =["Title"]
-                    DisplayMode: =If(IsEmpty(Gallery2_4.AllItems),DisplayMode.Edit,DisplayMode.Disabled)
+                    DisplayMode: |-
+                        =//If(IsEmpty(Gallery2_4.AllItems),DisplayMode.Edit,DisplayMode.Disabled)
+                        DisplayMode.Edit
                     Font: =App.Theme.Font
                     HoverColor: =RGBA(0, 0, 0, 1)
                     HoverFill: =App.Theme.Colors.Lighter70
-                    InputTextPlaceholder: ="Chọn nhà cung cấp"
-                    Items: ='mWarehouse.Suppliers'
+                    InputTextPlaceholder: ="Chọn tên khách hàng"
+                    Items: ='mWarehouse.Customers'
+                    NoSelectionText: ="Chọn tên khách hàng"
                     OnChange: |-
                         =Reset(ComboBox5_3);
                         Reset(TextInput4_1);
                     PressedColor: =RGBA(255, 255, 255, 1)
                     PressedFill: =App.Theme.Colors.Darker30
                     SearchFields: =["Title"]
-                    SearchItems: =Search('mWarehouse.Suppliers',ComboBox4_3.SearchText,Title)
+                    SearchItems: =Search('mWarehouse.Customers',ComboBox4_3.SearchText,Title)
                     SelectionFill: =App.Theme.Colors.Primary
                     SelectMultiple: =false
                     Size: =13
@@ -7032,8 +7046,8 @@ YeuCau As screen:
                     HoverFill: =App.Theme.Colors.Lighter70
                     InputTextPlaceholder: ="Chọn sản phẩm"
                     IsSearchable: =false
-                    Items: |
-                        =Filter(
+                    Items: |-
+                        =/*Filter(
                             'mWarehouse.Products',
                             supplierID = ComboBox4_3.Selected.ID And !(ID exactin Filter(
                                 'mWarehouse.ImportDetails',
@@ -7045,12 +7059,29 @@ YeuCau As screen:
                                 'mWarehouse.ImportDetails',
                                 importID = Label1_29.Text
                             ).productID)
-                        )
+                        )*/
                         //And LookUp('mWarehouse.Imports',importCode exactin 'mWarehouse.ImportDetails'.importID).status.Value = "Chờ duyệt"))
+                        Filter('mWarehouse.Products',status.Value = "Kinh doanh" And !(productCode exactin Filter('mWarehouse.ExportDetails',exportID = Label1_29.Text).productCode))
+                    NoSelectionText: ="Chọn sản phẩm"
                     PressedColor: =RGBA(255, 255, 255, 1)
                     PressedFill: =App.Theme.Colors.Darker30
-                    SearchFields: =["Title"]
-                    SearchItems: =[]
+                    SearchFields: =["ComplianceAssetId"]
+                    SearchItems: |-
+                        =Search(/*Filter(
+                            'mWarehouse.Products',
+                            supplierID = ComboBox4_3.Selected.ID And !(ID exactin Filter(
+                                'mWarehouse.ImportDetails',
+                                importID exactin Filter(
+                                    'mWarehouse.Imports',
+                                    status.Value = "Chờ duyệt"
+                                ).importCode
+                            ).productID)And !(ID exactin Filter(
+                                'mWarehouse.ImportDetails',
+                                importID = Label1_29.Text
+                            ).productID)
+                        )*/
+                        //And LookUp('mWarehouse.Imports',importCode exactin 'mWarehouse.ImportDetails'.importID).status.Value = "Chờ duyệt"))
+                        Filter('mWarehouse.Products',status.Value = "Kinh doanh" ),ComboBox5_3.SearchText,ComplianceAssetId)
                     SelectionFill: =App.Theme.Colors.Primary
                     SelectMultiple: =false
                     Size: =13
@@ -7068,7 +7099,7 @@ YeuCau As screen:
                     Icon: =Icon.Check
                     OnSelect: |-
                         =//false
-                        If(
+                        /*If(
                             IsBlank(ComboBox4_3.Selected.ID) Or IsBlank(ComboBox5_3.Selected.ID) Or IsBlank(NumberInput1_3.Value) ,
                             Notify("Hãy điền đủ thông tin !"),
                             Patch(
@@ -7087,6 +7118,26 @@ YeuCau As screen:
                             Reset(ComboBox5_3);
                             Reset(NumberInput1_3);
                             Notify("Thêm thành công!")
+                        )*/
+                        If(
+                            IsBlank(ComboBox5_3.Selected.ID) Or NumberInput1_3.Value = 0,
+                            Notify("Hãy điền đủ thông tin !"),
+                            Patch(
+                                'mWarehouse.ExportDetails',
+                                Defaults('mWarehouse.ExportDetails'),
+                                {
+                                    Title: ComboBox5_3.Selected.Title,
+                                    productCode: ComboBox5_3.Selected.productCode,
+                                    exportID: Label1_29.Text,
+                                    productID: ComboBox5_3.Selected.ID,
+                                    quantity: Value(NumberInput1_3.Value),
+                                    priceExport: Value(ComboBox5_3.Selected.priceExport),
+                                    totalPrice: Value(ComboBox5_3.Selected.priceExport * NumberInput1_3.Value)
+                                }
+                            );
+                            Reset(ComboBox5_3);
+                            Reset(NumberInput1_3);
+                            Notify("Thêm thành công!")
                         )
                     Width: =35
                     X: =967
@@ -7098,13 +7149,11 @@ YeuCau As screen:
                     BasePaletteColor: =RGBA(5, 102, 178, 1)
                     DisplayMode: =DisplayMode.Edit
                     Height: =40
-                    Max: |-
-                        =//LookUp('mWarehouse.Products',ID = ComboBox5_1.Selected.ID).quantity
-                        100
+                    Max: |
+                        =LookUp('mWarehouse.Products',ID = ComboBox5_3.Selected.ID).quantity
                     Min: =1
-                    Value: |-
-                        =//LookUp('mWarehouse.Products',ID = ComboBox5_1.Selected.ID).quantity
-                        1
+                    Value: |
+                        =LookUp('mWarehouse.Products',ID = ComboBox5_3.Selected.ID).quantity
                     Width: =100
                     X: =833
                     Y: =16
@@ -7294,7 +7343,7 @@ YeuCau As screen:
                 FontWeight: =FontWeight.Semibold
                 Size: =13
                 Text: |
-                    =Concatenate("DN_",Text( Right(Last('mWarehouse.Imports').importCode,3)+1,"000"))
+                    =Concatenate("HD_",Text( Right(Last('mWarehouse.Exports').exportCode,3)+1,"000"))
                 Width: =200
                 X: =192
                 Y: =9
@@ -7350,7 +7399,7 @@ YeuCau As screen:
             Height: =Parent.Height
             Visible: =ShowHuyBo1
             Width: =Parent.Width
-            ZIndex: =45
+            ZIndex: =29
 
         HuyBoX_Add As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
@@ -7364,7 +7413,7 @@ YeuCau As screen:
             Width: =Container9_14.Width / 1.5
             X: =HuyBoX_Add.Width /2.5
             Y: =HuyBoX_Add.Height / 1.1
-            ZIndex: =46
+            ZIndex: =30
 
             Label1_27 As label:
                 Align: =Align.Center
@@ -7468,7 +7517,7 @@ YeuCau As screen:
             Height: =Parent.Height
             Visible: =ShowXacNhan1
             Width: =Parent.Width
-            ZIndex: =47
+            ZIndex: =31
 
         XacNhanX_add As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
@@ -7482,7 +7531,7 @@ YeuCau As screen:
             Width: =Container9_14.Width / 1.5
             X: =XacNhanX_add.Width /2.5
             Y: =XacNhanX_add.Height / 1.1
-            ZIndex: =48
+            ZIndex: =32
 
             Label1_26 As label:
                 Align: =Align.Center
@@ -7609,7 +7658,7 @@ YeuCau As screen:
                 =//UpdateContext({ShowThemSP: false})
             Visible: =ShowThemSPdemo1
             Width: =Parent.Width
-            ZIndex: =49
+            ZIndex: =33
 
         SpDemo1_1 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.Light
@@ -7623,7 +7672,7 @@ YeuCau As screen:
             Width: =Parent.Width/1.2
             X: =Rectangle1_28.Width/12
             Y: =Rectangle1_28.Height/12
-            ZIndex: =50
+            ZIndex: =34
 
             Icon4_15 As icon.Cancel:
                 BorderColor: =App.Theme.Colors.Darker40
