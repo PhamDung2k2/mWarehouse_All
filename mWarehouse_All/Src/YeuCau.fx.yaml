@@ -7525,10 +7525,13 @@ YeuCau As screen:
                         =LookUp(
                             'mWarehouse.Products',
                             ID = ComboBox5_4.Selected.ID
-                        ).quantity - LookUp(
-                            'mWarehouse.ExportDetails',
-                            productCode = ComboBox5_4.Selected.productCode And exportID exactin 'mWarehouse.Exports'.exportCode
-                        ).quantity
+                        ).quantity - Sum(
+                            Filter(
+                                'mWarehouse.ExportDetails',
+                                productCode = ComboBox5_4.Selected.productCode And exportID exactin 'mWarehouse.Exports'.exportCode
+                            ),
+                            quantity
+                        )
                     Width: =100
                     X: =833
                     Y: =16
@@ -9168,10 +9171,13 @@ YeuCau As screen:
                         LookUp(
                             'mWarehouse.Products',
                             ID = ComboBox5_3.Selected.ID
-                        ).quantity - LookUp(
-                            'mWarehouse.ExportDetails',
-                            productCode = ComboBox5_3.Selected.productCode And exportID exactin 'mWarehouse.Exports'.exportCode
-                        ).quantity
+                        ).quantity - Sum(
+                            Filter(
+                                'mWarehouse.ExportDetails',
+                                productCode = ComboBox5_3.Selected.productCode And exportID exactin 'mWarehouse.Exports'.exportCode
+                            ),
+                            quantity
+                        )
                     Width: =100
                     X: =833
                     Y: =16
