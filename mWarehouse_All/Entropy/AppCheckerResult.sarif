@@ -19043,6 +19043,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ThongKe.Container4_4.Container5_4.ComboBox2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ThongKe.Container4_4.Container5_4.ComboBox2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ThongKe",
+                "type": "ThongKe.Container4_4.Container5_4.ComboBox2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.360_F_736262592_aqA11W6PZaMFjyg6TwNmi2XNoUwpsHCa"
                 }
               ],
