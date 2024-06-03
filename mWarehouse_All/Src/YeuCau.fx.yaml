@@ -7372,7 +7372,7 @@ YeuCau As screen:
                                 ).supplierID
                             )
                         )*/
-                        If(ShowTTKH_Update,Last('mWarehouse.Customers'))
+                        If(ShowTTKH_Update,Last('mWarehouse.Customers'),If(!IsBlank(Gallery3_1.Selected.exportCode),LookUp('mWarehouse.Customers',ID = Gallery3_1.Selected.customerID)))
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -7556,7 +7556,7 @@ YeuCau As screen:
                     BorderColor: =App.Theme.Colors.Darker40
                     BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
-                    Default: =
+                    Default: =Gallery3_1.Selected.Title
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -7817,8 +7817,8 @@ YeuCau As screen:
                         exportID = Label1_33.Text
                     );
                     Notify("Hủy đơn nhập thành công!");
-                    UpdateContext({ShowThemDonX: false});
-                    UpdateContext({ShowHuyBoX_Add: false});
+                    UpdateContext({ShowUpdateDonX: false});
+                    UpdateContext({ShowHuyBoX_Update: false});
                     Reset(TextInput3_5);
                     Reset(ComboBox4_4);
                 PressedBorderColor: =App.Theme.Colors.Darker40
@@ -7842,7 +7842,7 @@ YeuCau As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =App.Theme.Colors.Darker10
                 OnSelect: |-
-                    =UpdateContext({ShowHuyBoX_Add:false})
+                    =UpdateContext({ShowHuyBoX_Update:false})
                 PressedBorderColor: =App.Theme.Colors.Darker40
                 PressedColor: =Self.Color
                 PressedFill: =App.Theme.Colors.Darker40
@@ -7930,9 +7930,9 @@ YeuCau As screen:
                             }
                         );
                         Notify("Hoàn thành đơn xuất !");
-                        UpdateContext({ShowThemDonX: false});
-                        UpdateContext({ShowTTKH_Add: false});
-                        UpdateContext({ShowXacNhanX_Add: false});
+                        UpdateContext({ShowUpdateDonX: false});
+                        UpdateContext({ShowTTKH_Update: false});
+                        UpdateContext({ShowXacNhanX_Update: false});
                         Reset(ComboBox4_4);
                         Reset(TextInput3_5);
                         //false
@@ -7983,7 +7983,7 @@ YeuCau As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =App.Theme.Colors.Darker10
                 OnSelect: |-
-                    =UpdateContext({ShowXacNhanX_Add:false})
+                    =UpdateContext({ShowXacNhanX_Update:false})
                 PressedBorderColor: =App.Theme.Colors.Darker40
                 PressedColor: =Self.Color
                 PressedFill: =App.Theme.Colors.Darker40
