@@ -7906,16 +7906,14 @@ YeuCau As screen:
                         Notify("Không được để trống !"),
                         Patch(
                             'mWarehouse.Exports',
-                            Defaults('mWarehouse.Exports'),
+                            LookUp('mWarehouse.Exports',exportCode = Label1_33.Text),
                             {
                                 Title: TextInput3_5.Text,
-                                exportCode: Label1_33.Text,
                                 customerID: ComboBox4_4.Selected.ID,
                                 userID: LookUp(
                                     'mWarehouse.Users',
                                     account = TextInput1.Text
                                 ).ID,
-                                status: {Value: "Chờ duyệt"},
                                 amount: Value(Label12_16.Text),
                                 totalPrice: Value(
                                     Sum(
