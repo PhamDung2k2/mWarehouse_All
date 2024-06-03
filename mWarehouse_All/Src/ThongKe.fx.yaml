@@ -232,7 +232,7 @@ ThongKe As screen:
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =App.Theme.Colors.Lighter70
                 InputTextPlaceholder: ="Chọn nội dung biểu đồ"
-                Items: =["Số lượng đơn nhập được tạo","Só lượng đơn xuất được tạo","Thống kê theo trạng thái đơn nhập","Thống kê theo trạng thái đơn xuất","Số lượng sản phẩm đã được cập nhật theo thời gian"]
+                Items: =["Số lượng đơn nhập được tạo","Số lượng đơn xuất được tạo","Thống kê theo trạng thái đơn nhập","Thống kê theo trạng thái đơn xuất","Số lượng sản phẩm đã được cập nhật theo thời gian"]
                 OnChange: |-
                     =If(
                         ComboBox1.Selected.Value = "Số lượng đơn nhập được tạo",
@@ -369,28 +369,29 @@ ThongKe As screen:
                 =172
             ZIndex: =3
 
-            CompositePieChart1 As group:
+            CompositePieChart2 As group:
                 Height: =5
                 Width: =5
                 X: =40
                 Y: =40
                 ZIndex: =1
 
-                Title1 As label:
+                Title2 As label:
                     Align: =Align.Center
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =App.Theme.Font
-                    Height: =Container10.Height
+                    FontWeight: =FontWeight.Semibold
+                    Size: |
+                        =20
                     Text: =ComboBox1.Selected.Value
                     Visible: =ShowTT_NX
-                    Width: =Container10
+                    Width: =1156
                     ZIndex: =2
 
-                PieChart1 As pieChart:
+                PieChart2 As pieChart:
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    Height: =
-                    ItemBorderThickness: =3
+                    Height: =484
                     ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
                     Items: |-
                         =If(
@@ -446,18 +447,23 @@ ThongKe As screen:
                                 )
                             )
                         )
+                    Size: |
+                        =15
                     Visible: =ShowTT_NX
-                    Width: =Container10
+                    Width: =808
                     ZIndex: =3
 
-                Legend1 As legend:
+                Legend2 As legend:
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =App.Theme.Font
-                    Height: =Container10.Height
-                    ItemColorSet: =PieChart1.ItemColorSet
-                    Items: =PieChart1.SeriesLabels
+                    Height: =176
+                    ItemColorSet: =PieChart2.ItemColorSet
+                    Items: =PieChart2.SeriesLabels
+                    Size: =16
                     Visible: =ShowTT_NX
-                    Width: =Container10
+                    Width: =408
+                    X: =748
+                    Y: =163
                     ZIndex: =4
 
     ThemSp_2 As group:
