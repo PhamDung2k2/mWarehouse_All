@@ -7225,7 +7225,7 @@ YeuCau As screen:
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =App.Theme.Font
                     Size: =13
-                    Text: =Sum(Filter('mWarehouse.ImportDetails',importID = Label1_29.Text),quantity)
+                    Text: =Sum(Filter('mWarehouse.ExportDetails',exportID = Label1_29.Text),quantity)
                     Width: =80
                     X: =749
                     Y: =20
@@ -7252,7 +7252,7 @@ YeuCau As screen:
                     Font: =App.Theme.Font
                     Size: =13
                     Text: |-
-                        =Concatenate(Text(Sum(Filter('mWarehouse.ImportDetails',importID = Label1_29.Text),totalPrice),"###,###")," VNĐ")
+                        =Concatenate(Text(Sum(Filter('mWarehouse.ExportDetails',exportID = Label1_29.Text),totalPrice),"###,###")," VNĐ")
                     Width: =200
                     X: =922
                     Y: =20

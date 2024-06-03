@@ -1706,7 +1706,7 @@
                   "charLength": 74,
                   "charOffset": 0,
                   "snippet": {
-                    "text": "Sum(Filter('mWarehouse.ImportDetails',importID = Label1_29.Text),quantity)"
+                    "text": "Sum(Filter('mWarehouse.ExportDetails',exportID = Label1_29.Text),quantity)"
                   }
                 }
               },
@@ -1746,7 +1746,7 @@
                   "charLength": 76,
                   "charOffset": 17,
                   "snippet": {
-                    "text": "Sum(Filter('mWarehouse.ImportDetails',importID = Label1_29.Text),totalPrice)"
+                    "text": "Sum(Filter('mWarehouse.ExportDetails',exportID = Label1_29.Text),totalPrice)"
                   }
                 }
               },
