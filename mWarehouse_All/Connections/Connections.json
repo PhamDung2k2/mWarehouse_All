@@ -1,0 +1,58 @@
+{
+  "ce53e2f7-f540-4b78-9d1c-1b5ba04748a1": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1685/1.0.1685.3700/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://bhktechcorp.sharepoint.com/sites/daotran": {
+        "dataSources": {
+          "mWarehouse.Customers": {
+            "tableName": "b49c3d66-1512-4dc6-8f04-21df20896983"
+          },
+          "mWarehouse.ExportDetails": {
+            "tableName": "7a8c8647-71f4-40ae-b41f-5ddec288f93f"
+          },
+          "mWarehouse.Exports": {
+            "tableName": "2b501b76-5355-4801-a61e-fd92c5032ca7"
+          },
+          "mWarehouse.ImportDetails": {
+            "tableName": "f36897c0-2550-48dd-870d-69baa8061415"
+          },
+          "mWarehouse.Imports": {
+            "tableName": "6fafe115-3a6e-4ddb-84f1-cb870921417a"
+          },
+          "mWarehouse.Products": {
+            "tableName": "b01b8c8a-571e-49ed-9d15-74aa7c07852c"
+          },
+          "mWarehouse.Suppliers": {
+            "tableName": "871c6ded-a5ab-402c-99e3-3b321eacfe19"
+          },
+          "mWarehouse.Users": {
+            "tableName": "d0a42621-cdaf-4163-b270-77919cb475e8"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "mWarehouse.Products",
+      "mWarehouse.Customers",
+      "mWarehouse.ExportDetails",
+      "mWarehouse.Exports",
+      "mWarehouse.ImportDetails",
+      "mWarehouse.Imports",
+      "mWarehouse.Suppliers",
+      "mWarehouse.Users"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "ce53e2f7-f540-4b78-9d1c-1b5ba04748a1"
+  }
+}

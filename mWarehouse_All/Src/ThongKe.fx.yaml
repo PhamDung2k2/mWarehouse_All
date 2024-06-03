@@ -1,0 +1,418 @@
+ThongKe As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+
+    Container1_4 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Semibold
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =100
+        RadiusBottomLeft: =10
+        RadiusBottomRight: =10
+        RadiusTopLeft: =10
+        RadiusTopRight: =10
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Image2_4 As image:
+            BorderColor: =App.Theme.Colors.Darker40
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Image: =BHKlogo
+            Width: =256
+            ZIndex: =1
+
+        Label5_8 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Bold
+            Height: =47
+            Size: =15
+            Text: =LookUp('mWarehouse.Users',account = TextInput1.Text).Title
+            Width: =259
+            X: =1107
+            Y: =3
+            ZIndex: =2
+
+        Label5_9 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(99, 139, 44, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Bold
+            Height: =47
+            Size: =13
+            Text: =LookUp('mWarehouse.Users',account = TextInput1.Text).role.Value
+            Width: =259
+            X: =1107
+            Y: =50
+            ZIndex: =3
+
+        Image3_4 As image:
+            BorderColor: =App.Theme.Colors.Darker40
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Image: ='kisspng-user-computer-icons-gravatar-blog-happy-woman-5aca6d038826d9.7357010215232156195577'
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: =50
+            RadiusTopRight: =50
+            X: =1007
+            ZIndex: =4
+
+    Container3_4 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Semibold
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =Parent.Height-110
+        RadiusBottomLeft: =10
+        RadiusBottomRight: =10
+        RadiusTopLeft: =10
+        RadiusTopRight: =10
+        Width: |
+            =200
+        Y: =110
+        ZIndex: =2
+
+        "Gallery1_4 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+            BorderColor: =App.Theme.Colors.Darker40
+            DelayItemLoading: =true
+            Height: =420
+            Items: |-
+                =Table({ID: 1,Title:"Trang chủ",Name:TrangChu},{ID: 2,Title:"Thông tin",Name: ThongTin},{ID: 3,Title:"Yêu cầu",Name:YeuCau},{ID: 4,Title:"Thống kê",Name:ThongKe},{ID: 5,Title:"Duyệt đơn",Name:DuyetDon})
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            OnSelect: |-
+                =Set(ShowFill,ThisItem.ID);
+                Navigate(ThisItem.Name,ScreenTransition.Fade)
+            TemplatePadding: =0
+            TemplateSize: =83
+            Width: =200
+            Y: =12
+            ZIndex: =1
+
+            Separator1_4 As rectangle:
+                BorderColor: =App.Theme.Colors.Darker40
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =7
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =39
+                ZIndex: =5
+
+            Label6_4 As label:
+                Align: =Align.Center
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =If(ThisItem.ID = ShowFill,Color.Gray,RGBA(0,0,0,0))
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Semibold
+                Height: =53
+                OnSelect: =Select(Parent)
+                Size: =13
+                Text: =ThisItem.Title
+                Width: =200
+                Y: =23
+                ZIndex: =7
+
+        Label7_4 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =Navigate(DangNhap); Reset(TextInput1);Reset(TextInput1_1);
+            Size: =13
+            Text: ="Đăng xuất"
+            Width: =100
+            X: =66
+            Y: =597
+            ZIndex: =2
+
+        Image4_4 As image:
+            BorderColor: =App.Theme.Colors.Darker40
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =59
+            Image: ='icons8-logout-100'
+            OnSelect: =Navigate(DangNhap); Reset(TextInput1);Reset(TextInput1_1);
+            Width: =61
+            X: =17
+            Y: =588
+            ZIndex: =3
+
+    Container4_4 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Semibold
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =Parent.Height - 110
+        RadiusBottomLeft: =10
+        RadiusBottomRight: =10
+        RadiusTopLeft: =10
+        RadiusTopRight: =10
+        Width: =Parent.Width - 210
+        X: =210
+        Y: =110
+        ZIndex: =3
+
+        Container2_4 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Semilight
+            Height: =70
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            ZIndex: =1
+
+            Label8_4 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Semibold
+                Height: =35
+                Size: =16
+                Text: ="Thống kê tổng quan "
+                Width: =267
+                X: =79
+                Y: =20
+                ZIndex: =1
+
+            Icon5 As icon.Trending:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =App.Theme.Colors.Darker30
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                Height: =55
+                Icon: =Icon.Trending
+                Width: =55
+                X: =15
+                Y: =6
+                ZIndex: =2
+
+        Container5_4 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Semilight
+            Height: |
+                =100
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            Y: =70
+            ZIndex: =2
+
+            Label9_4 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Semibold
+                Height: =41
+                Size: =13
+                Text: ="Chọn loại biểu đồ "
+                Width: =200
+                X: =16
+                Y: =24
+                ZIndex: =1
+
+            ComboBox1 As combobox:
+                BorderColor: =App.Theme.Colors.Darker40
+                ChevronBackground: =App.Theme.Colors.Primary
+                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                ChevronHoverBackground: =App.Theme.Colors.Darker10
+                ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Font: =App.Theme.Font
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =App.Theme.Colors.Lighter70
+                Items: =ComboBoxSample
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =App.Theme.Colors.Darker30
+                SearchItems: =Search(ComboBoxSample,ComboBox1.SearchText,Value1)
+                SelectionFill: =App.Theme.Colors.Primary
+                Size: =13
+                X: =193
+                Y: =25
+                ZIndex: =4
+
+        Container10 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Height: =485
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            Y: |
+                =172
+            ZIndex: =3
+
+            CompositePieChart1 As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =1
+
+                Title1 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    Height: =25
+                    Text: ="Chart Title"
+                    Width: =400
+                    X: =2
+                    Y: =25
+                    ZIndex: =2
+
+                PieChart1 As pieChart:
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
+                    Items: =PieChartSample
+                    X: =2
+                    Y: =55
+                    ZIndex: =3
+
+                Legend1 As legend:
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    Height: =200
+                    ItemColorSet: =PieChart1.ItemColorSet
+                    Items: =PieChart1.SeriesLabels
+                    Width: =400
+                    X: =585
+                    Y: =135
+                    ZIndex: =4
+
+    ThemSp_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =6
+
+        Rectangle1_6 As rectangle:
+            BorderColor: =RGBA(202, 202, 202, 1)
+            Fill: =RGBA(202, 202, 202, 0.5)
+            Height: =Parent.Height
+            OnSelect: |-
+                =UpdateContext({ShowThemSP: false})
+            Visible: =ShowThemSP
+            Width: =Parent.Width
+            ZIndex: =4
+
+        Container9_6 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height/1.2
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =ShowThemSP
+            Width: =Parent.Width/1.2
+            X: =Rectangle1_6.Width/12
+            Y: =Rectangle1_6.Height/12
+            ZIndex: =5
+
+            Label1_6 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Size: =13
+                Text: ="Thêm sản phẩm"
+                X: =40
+                Y: =40
+                ZIndex: =1
+
+    ThemNCC_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =8
+
+        Rectangle1_7 As rectangle:
+            BorderColor: =RGBA(202, 202, 202, 1)
+            Fill: =RGBA(202, 202, 202, 0.5)
+            Height: =Parent.Height
+            OnSelect: |-
+                =UpdateContext({ShowThemNCC: false})
+            Visible: =ShowThemNCC
+            Width: =Parent.Width
+            ZIndex: =6
+
+        Container9_7 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height/1.2
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =ShowThemNCC
+            Width: =Parent.Width/1.2
+            X: =Rectangle1_7.Width/12
+            Y: =Rectangle1_7.Height/12
+            ZIndex: =7
+
+            Label1_7 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Size: =13
+                Text: ="Thêm Nhà cung cấp"
+                X: =40
+                Y: =40
+                ZIndex: =1
+
+    ThemDon_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =10
+
+        Rectangle1_8 As rectangle:
+            BorderColor: =RGBA(202, 202, 202, 1)
+            Fill: =RGBA(202, 202, 202, 0.5)
+            Height: =Parent.Height
+            OnSelect: |-
+                =UpdateContext({ShowThemDon: false})
+            Visible: =ShowThemDon
+            Width: =Parent.Width
+            ZIndex: =8
+
+        Container9_8 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height/1.2
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =ShowThemDon
+            Width: =Parent.Width/1.2
+            X: =Rectangle1_8.Width/12
+            Y: =Rectangle1_8.Height/12
+            ZIndex: =9
+
+            Label1_8 As label:
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Size: =13
+                Text: ="Thêm Đơn"
+                X: =40
+                Y: =40
+                ZIndex: =1
+
