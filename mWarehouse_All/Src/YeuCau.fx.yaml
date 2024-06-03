@@ -267,27 +267,6 @@ YeuCau As screen:
                 Y: =25
                 ZIndex: =2
 
-            Button1_1 As button:
-                BorderColor: =App.Theme.Colors.Primary
-                DisabledBorderColor: =RGBA(244, 244, 244, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                Fill: =App.Theme.Colors.Primary
-                Font: =App.Theme.Font
-                FontWeight: =FontWeight.Semibold
-                HoverBorderColor: =App.Theme.Colors.Darker10
-                HoverColor: =RGBA(255, 255, 255, 1)
-                HoverFill: =App.Theme.Colors.Darker10
-                PressedBorderColor: =App.Theme.Colors.Darker40
-                PressedColor: =Self.Color
-                PressedFill: =App.Theme.Colors.Darker40
-                Size: =15
-                Text: ="🔍"
-                Width: =70
-                X: =430
-                Y: =24
-                ZIndex: =3
-
             Button5_5 As button:
                 BorderColor: =App.Theme.Colors.Primary
                 DisabledBorderColor: =RGBA(244, 244, 244, 1)

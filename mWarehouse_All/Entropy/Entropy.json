@@ -35,7 +35,6 @@
     "BarcodeReader1": 478,
     "brand_DataCard2": 650,
     "Button1": 479,
-    "Button1_1": 1058,
     "Button10": 303,
     "Button10_1": 302,
     "Button10_2": 731,
@@ -1272,7 +1271,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "06/03/2024 08:56:12",
+  "HeaderLastSavedDateTimeUTC": "06/03/2024 08:56:30",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "ce53e2f7-f540-4b78-9d1c-1b5ba04748a1": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/0ed383145d4d4d42b8e33ae014a8b8d5\""
@@ -1570,7 +1569,6 @@
     },
     "brand_DataCard2": {},
     "Button1": {},
-    "Button1_1": {},
     "Button10": {},
     "Button10_1": {},
     "Button10_2": {},
@@ -3074,7 +3072,6 @@
     "BarcodeReader1": 347,
     "brand_DataCard2": 1227,
     "Button1": 348,
-    "Button1_1": 982,
     "Button10": 171,
     "Button10_1": 170,
     "Button10_2": 655,
