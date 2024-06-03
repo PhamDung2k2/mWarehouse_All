@@ -7538,11 +7538,13 @@ YeuCau As screen:
                                         ),
                                         totalPrice
                                     )
-                                )
+                                ),
+                                address: ComboBox4_3.Selected.address
                             }
                         );
                         Notify("Hoàn thành đơn xuất !");
                         UpdateContext({ShowThemDonX: false});
+                        UpdateContext({ShowTTKH_Add: false});
                         UpdateContext({ShowXacNhanX_Add: false});
                         Reset(ComboBox4_3);
                         Reset(TextInput3_4);
