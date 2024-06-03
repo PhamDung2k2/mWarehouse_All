@@ -9470,6 +9470,10 @@ YeuCau As screen:
                         'mWarehouse.ExportDetails',
                         exportID = Label1_29.Text
                     );
+                    RemoveIf(
+                        'mWarehouse.Exports',
+                        exportCode = Label1_29.Text
+                    );
                     Notify("Hủy đơn nhập thành công!");
                     UpdateContext({ShowThemDonX: false});
                     UpdateContext({ShowHuyBoX_Add: false});
