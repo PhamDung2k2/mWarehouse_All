@@ -7730,7 +7730,7 @@ YeuCau As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =App.Theme.Colors.Darker10
                 OnSelect: |-
-                    =UpdateContext({ShowXacNhanX_Add:true})
+                    =UpdateContext({ShowXacNhanX_Update:true})
                 PressedBorderColor: =App.Theme.Colors.Darker40
                 PressedColor: =Self.Color
                 PressedFill: =App.Theme.Colors.Darker40
@@ -7752,7 +7752,7 @@ YeuCau As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =App.Theme.Colors.Darker10
                 OnSelect: |-
-                    =UpdateContext({ShowHuyBoX_Add:true})
+                    =UpdateContext({ShowHuyBoX_Update:true})
                 PressedBorderColor: =App.Theme.Colors.Darker40
                 PressedColor: =Self.Color
                 PressedFill: =App.Theme.Colors.Darker40
@@ -7766,7 +7766,7 @@ YeuCau As screen:
             BorderColor: =App.Theme.Colors.Darker40
             Fill: =RGBA(202, 202, 202, 0.5)
             Height: =Parent.Height
-            Visible: =ShowHuyBoX_Add
+            Visible: =ShowHuyBoX_Update
             Width: =Parent.Width
             ZIndex: =40
 
@@ -7778,7 +7778,7 @@ YeuCau As screen:
             RadiusBottomRight: =4
             RadiusTopLeft: =4
             RadiusTopRight: =4
-            Visible: =ShowHuyBoX_Add
+            Visible: =ShowHuyBoX_Update
             Width: =Container9_14.Width / 1.5
             X: =HuyBoX_Update.Width /2.5
             Y: =HuyBoX_Update.Height / 1.1
@@ -7855,7 +7855,7 @@ YeuCau As screen:
             BorderColor: =App.Theme.Colors.Darker40
             Fill: =RGBA(202, 202, 202, 0.5)
             Height: =Parent.Height
-            Visible: =ShowXacNhanX_Add
+            Visible: =ShowXacNhanX_Update
             Width: =Parent.Width
             ZIndex: =42
 
@@ -7867,7 +7867,7 @@ YeuCau As screen:
             RadiusBottomRight: =4
             RadiusTopLeft: =4
             RadiusTopRight: =4
-            Visible: =ShowXacNhanX_Add
+            Visible: =ShowXacNhanX_Update
             Width: =Container9_14.Width / 1.5
             X: =XacNhanX_Update.Width /2.5
             Y: =XacNhanX_Update.Height / 1.1
