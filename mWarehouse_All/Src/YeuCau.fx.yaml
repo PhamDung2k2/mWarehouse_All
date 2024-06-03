@@ -6852,30 +6852,11 @@ YeuCau As screen:
                             DisabledColor: =RGBA(244, 244, 244, 1)
                             Height: =35
                             Icon: =Icon.HorizontalLine
-                            OnSelect: |-
-                                =
-                                If(
-                                    IsEmpty(
-                                        Filter(
-                                            'mWarehouse.Products',
-                                            ID = Gallery2_4.Selected.productID And status.Value = "Đang chờ"
-                                        )
-                                    ),
-                                    RemoveIf(
-                                        'mWarehouse.ImportDetails',
-                                        ID = Gallery2_4.Selected.ID
-                                    );
-                                    RemoveIf(
-                                        'mWarehouse.Products',
-                                        ID = Gallery2_4.Selected.productID
-                                    );
-                                    ,
-                                    RemoveIf(
-                                        'mWarehouse.ImportDetails',
-                                        ID = Gallery2_4.Selected.ID
-                                    );
-                                    
-                                )
+                            OnSelect: |
+                                =RemoveIf(
+                                    'mWarehouse.ExportDetails',
+                                    ID = Gallery2_4.Selected.ID
+                                );
                             Width: =35
                             X: =1077
                             Y: =17
@@ -6969,7 +6950,8 @@ YeuCau As screen:
                             Notify("Bỏ chọn khách hàng để có thể tạo thông tin khách hàng mới!"),
                             ResetForm(Form1_2);
                             NewForm(Form1_2);
-                            UpdateContext({ShowThemKH2: true})
+                            UpdateContext({ShowThemKH2: true});
+                            UpdateContext({ShowTTKH_Add: true})
                         )
                     Width: =35
                     X: =1084
@@ -7002,6 +6984,7 @@ YeuCau As screen:
                                 ).supplierID
                             )
                         )*/
+                        If(ShowTTKH_Add,Last('mWarehouse.Customers'))
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -7383,7 +7366,7 @@ YeuCau As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =App.Theme.Colors.Darker10
                 OnSelect: |-
-                    =UpdateContext({ShowHuyBo1:true})
+                    =UpdateContext({ShowHuyBoX_Add:true})
                 PressedBorderColor: =App.Theme.Colors.Darker40
                 PressedColor: =Self.Color
                 PressedFill: =App.Theme.Colors.Darker40
@@ -7397,7 +7380,7 @@ YeuCau As screen:
             BorderColor: =App.Theme.Colors.Darker40
             Fill: =RGBA(202, 202, 202, 0.5)
             Height: =Parent.Height
-            Visible: =ShowHuyBo1
+            Visible: =ShowHuyBoX_Add
             Width: =Parent.Width
             ZIndex: =29
 
@@ -7409,7 +7392,7 @@ YeuCau As screen:
             RadiusBottomRight: =4
             RadiusTopLeft: =4
             RadiusTopRight: =4
-            Visible: =ShowHuyBo1
+            Visible: =ShowHuyBoX_Add
             Width: =Container9_14.Width / 1.5
             X: =HuyBoX_Add.Width /2.5
             Y: =HuyBoX_Add.Height / 1.1
@@ -7464,8 +7447,8 @@ YeuCau As screen:
                             importID = Label1_29.Text
                         );
                         Notify("Hủy đơn nhập thành công!");
-                        UpdateContext({ShowThemDonN: false});
-                        UpdateContext({ShowHuyBo1: false});
+                        UpdateContext({ShowThemDonX: false});
+                        UpdateContext({ShowHuyBoX_Add: false});
                         Reset(TextInput3_4);
                         Reset(ComboBox4_3);
                         ,
@@ -7474,8 +7457,7 @@ YeuCau As screen:
                             importID = Label1_29.Text
                         );
                         Notify("Hủy đơn nhập thành công!");
-                        UpdateContext({ShowThemDonN: false});
-                        UpdateContext({ShowHuyBo1: false});
+                        
                         Reset(TextInput3_4);
                         Reset(ComboBox4_3);
                         
@@ -7501,7 +7483,7 @@ YeuCau As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =App.Theme.Colors.Darker10
                 OnSelect: |-
-                    =UpdateContext({ShowHuyBo1:false})
+                    =UpdateContext({ShowHuyBoX_Add:false})
                 PressedBorderColor: =App.Theme.Colors.Darker40
                 PressedColor: =Self.Color
                 PressedFill: =App.Theme.Colors.Darker40
