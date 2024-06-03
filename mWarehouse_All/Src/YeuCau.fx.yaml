@@ -7520,7 +7520,7 @@ YeuCau As screen:
                     Height: =40
                     Max: |
                         =LookUp('mWarehouse.Products',ID = ComboBox5_4.Selected.ID).quantity
-                    Min: =1
+                    Min: =0
                     Value: |-
                         =LookUp(
                             'mWarehouse.Products',
@@ -9162,9 +9162,16 @@ YeuCau As screen:
                     Height: =40
                     Max: |
                         =LookUp('mWarehouse.Products',ID = ComboBox5_3.Selected.ID).quantity
-                    Min: =1
-                    Value: |
-                        =LookUp('mWarehouse.Products',ID = ComboBox5_3.Selected.ID).quantity
+                    Min: =0
+                    Value: |-
+                        =//LookUp('mWarehouse.Products',ID = ComboBox5_3.Selected.ID).quantity
+                        LookUp(
+                            'mWarehouse.Products',
+                            ID = ComboBox5_3.Selected.ID
+                        ).quantity - LookUp(
+                            'mWarehouse.ExportDetails',
+                            productCode = ComboBox5_3.Selected.productCode And exportID exactin 'mWarehouse.Exports'.exportCode
+                        ).quantity
                     Width: =100
                     X: =833
                     Y: =16
