@@ -66,6 +66,22 @@
           "InvariantPropertyName": "InputTextPlaceholder",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "If(\n    ComboBox1.Selected.Value = \"Số lượng đơn nhập được tạo\",\n    UpdateContext({}),\n    If(\n        ComboBox1.Selected.Value = \"Số lượng đơn xuất được tạo\",\n        UpdateContext({}),\n        If(\n            ComboBox1.Selected.Value = \"Thống kê theo trạng thái đơn nhập\",\n            UpdateContext({ShowTT_NX: true});\n            ClearCollect(\n                TT_NX,\n                Table(\n                    {\n                        ID: 1,\n                        statusN: \"Chờ duyệt\",\n                        quantity: {\n                            Value: CountIf(\n                                'mWarehouse.Imports',\n                                status.Value = \"Chờ duyệt\"\n                            )\n                        }\n                    },\n                    {\n                        ID: 2,\n                        statusN: \"Đơn hàng\",\n                        quantity: {\n                            Value: CountIf(\n                                'mWarehouse.Imports',\n                                status.Value = \"Đơn hàng\"\n                            )\n                        }\n                    },\n                    {\n                        ID: 3,\n                        statusN: \"Từ chối\",\n                        quantity: {\n                            Value: CountIf(\n                                'mWarehouse.Imports',\n                                status.Value = \"Từ chối\"\n                            )\n                        }\n                    },\n                    {\n                        ID: 4,\n                        statusN: \"Hoàn thành\",\n                        quantity: {\n                            Value: CountIf(\n                                'mWarehouse.Imports',\n                                status.Value = \"Hoàn thành\"\n                            )\n                        }\n                    }\n                )\n            );\n            ,\n            If(\n                ComboBox1.Selected.Value = \"Thống kê theo trạng thái đơn xuất\",\n                UpdateContext({ShowTT_NX: true});\n                ClearCollect(\n                TT_NX,\n                Table(\n                    {\n                        ID: 1,\n                        statusN: \"Chờ duyệt\",\n                        quantity: {\n                            Value: CountIf(\n                                'mWarehouse.Exports',\n                                status.Value = \"Chờ duyệt\"\n                            )\n                        }\n                    },\n                    {\n                        ID: 2,\n                        statusN: \"Đơn hàng\",\n                        quantity: {\n                            Value: CountIf(\n                                'mWarehouse.Exports',\n                                status.Value = \"Đơn hàng\"\n                            )\n                        }\n                    },\n                    {\n                        ID: 3,\n                        statusN: \"Từ chối\",\n                        quantity: {\n                            Value: CountIf(\n                                'mWarehouse.Exports',\n                                status.Value = \"Từ chối\"\n                            )\n                        }\n                    },\n                    {\n                        ID: 4,\n                        statusN: \"Hoàn thành\",\n                        quantity: {\n                            Value: CountIf(\n                                'mWarehouse.Exports',\n                                status.Value = \"Hoàn thành\"\n                            )\n                        }\n                    }\n                )\n            );\n                ,\n                If(\n                    ComboBox1.Selected.Value = \"Số lượng sản phẩm đã được cập nhật theo thời gian\",\n                    UpdateContext({})\n                )\n            )\n        )\n    )\n)",
+          "InvariantPropertyName": "OnChange",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "SelectMultiple",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
         }
       ],
       "HasDynamicProperties": false,
@@ -111,6 +127,11 @@
           "Category": "Data",
           "PropertyName": "InputTextPlaceholder",
           "RuleProviderType": "User"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "SelectMultiple",
+          "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
@@ -296,6 +317,11 @@
           "Category": "Design",
           "PropertyName": "Size",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnChange",
+          "RuleProviderType": "User"
         }
       ],
       "StyleName": "defaultComboBoxStyle",
@@ -5727,15 +5753,44 @@
         "DisabledFill",
         "Font",
         "FontWeight",
-        "X",
-        "Y",
-        "Width",
-        "Height",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "585",
+          "InvariantPropertyName": "X",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "135",
+          "InvariantPropertyName": "Y",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "400",
+          "InvariantPropertyName": "Width",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "200",
+          "InvariantPropertyName": "Height",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "DisplayMode",
         "ZIndex",
         "BorderThickness",
         "Size",
-        "Italic"
+        "Italic",
+        "Visible"
       ],
       "HasDynamicProperties": false,
       "IsAutoGenerated": false,
@@ -5755,6 +5810,11 @@
           "Category": "Data",
           "NameMap": "{\"Value\":\"Value\"}",
           "PropertyName": "Items",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Visible",
           "RuleProviderType": "Unknown"
         },
         {
@@ -5815,22 +5875,22 @@
         {
           "Category": "Design",
           "PropertyName": "X",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
           "PropertyName": "Y",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
           "PropertyName": "Height",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
@@ -5864,7 +5924,14 @@
     "PieChart1": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
-        "Items",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "TT_NX",
+          "InvariantPropertyName": "Items",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "ItemColorSet",
         "LabelPosition",
         "ItemBorderColor",
@@ -5874,15 +5941,60 @@
         "Color",
         "BorderColor",
         "BorderStyle",
-        "X",
-        "Y",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "2",
+          "InvariantPropertyName": "X",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "55",
+          "InvariantPropertyName": "Y",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Font",
-        "Width",
-        "Height",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "400",
+          "InvariantPropertyName": "Width",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "400",
+          "InvariantPropertyName": "Height",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "DisplayMode",
         "ZIndex",
         "Size",
-        "BorderThickness"
+        "BorderThickness",
+        "Visible",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "ItemBorderThickness",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Explode",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "HasDynamicProperties": false,
       "IsAutoGenerated": false,
@@ -5900,8 +6012,13 @@
       "Properties": [
         {
           "Category": "Data",
-          "NameMap": "{\"Labels\":\"City\",\"Series\":\"Area\"}",
+          "NameMap": "{\"Labels\":\"lable\",\"Series\":\"quantity\"}",
           "PropertyName": "Items",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Visible",
           "RuleProviderType": "Unknown"
         },
         {
@@ -5952,12 +6069,12 @@
         {
           "Category": "Design",
           "PropertyName": "X",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
           "PropertyName": "Y",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
@@ -5967,12 +6084,12 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
           "PropertyName": "Height",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
@@ -5992,6 +6109,16 @@
         {
           "Category": "Design",
           "PropertyName": "BorderThickness",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "ItemBorderThickness",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Explode",
           "RuleProviderType": "Unknown"
         }
       ],
@@ -6920,13 +7047,42 @@
         "FontWeight",
         "Align",
         "VerticalAlign",
-        "X",
-        "Y",
-        "Width",
-        "Height",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "402",
+          "InvariantPropertyName": "X",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "25",
+          "InvariantPropertyName": "Y",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "400",
+          "InvariantPropertyName": "Width",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "25",
+          "InvariantPropertyName": "Height",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "DisplayMode",
         "ZIndex",
-        "Size"
+        "Size",
+        "Visible"
       ],
       "HasDynamicProperties": false,
       "IsAutoGenerated": false,
@@ -6955,6 +7111,11 @@
         {
           "Category": "Data",
           "PropertyName": "Role",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Visible",
           "RuleProviderType": "Unknown"
         },
         {
@@ -7055,22 +7216,22 @@
         {
           "Category": "Design",
           "PropertyName": "X",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
           "PropertyName": "Y",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
           "PropertyName": "Width",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
           "PropertyName": "Height",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",

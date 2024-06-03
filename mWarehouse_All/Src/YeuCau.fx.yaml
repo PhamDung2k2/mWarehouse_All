@@ -7458,7 +7458,7 @@ YeuCau As screen:
                             ).productID)
                         )*/
                         //And LookUp('mWarehouse.Imports',importCode exactin 'mWarehouse.ImportDetails'.importID).status.Value = "Chờ duyệt"))
-                        Filter('mWarehouse.Products',status.Value = "Kinh doanh" ),ComboBox5_4.SearchText,ComplianceAssetId)
+                        Filter('mWarehouse.Products',status.Value = "Kinh doanh" ),ComboBox5_4.SearchText,'Compliance Asset Id')
                     SelectionFill: =App.Theme.Colors.Primary
                     SelectMultiple: =false
                     Size: =13
@@ -9103,7 +9103,7 @@ YeuCau As screen:
                             ).productID)
                         )*/
                         //And LookUp('mWarehouse.Imports',importCode exactin 'mWarehouse.ImportDetails'.importID).status.Value = "Chờ duyệt"))
-                        Filter('mWarehouse.Products',status.Value = "Kinh doanh" ),ComboBox5_3.SearchText,ComplianceAssetId)
+                        Filter('mWarehouse.Products',status.Value = "Kinh doanh" ),ComboBox5_3.SearchText,'Compliance Asset Id')
                     SelectionFill: =App.Theme.Colors.Primary
                     SelectMultiple: =false
                     Size: =13

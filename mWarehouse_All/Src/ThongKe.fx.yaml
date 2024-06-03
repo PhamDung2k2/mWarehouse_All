@@ -242,8 +242,8 @@ ThongKe As screen:
                             UpdateContext({}),
                             If(
                                 ComboBox1.Selected.Value = "Thống kê theo trạng thái đơn nhập",
-                                UpdateContext({ShowTT_NX: true});
-                                ClearCollect(
+                                UpdateContext({ShowTT_NX: true,IsDN: true});
+                                /*ClearCollect(
                                     TT_NX,
                                     Table(
                                         {
@@ -287,12 +287,12 @@ ThongKe As screen:
                                             }
                                         }
                                     )
-                                );
+                                );*/
                                 ,
                                 If(
                                     ComboBox1.Selected.Value = "Thống kê theo trạng thái đơn xuất",
-                                    UpdateContext({ShowTT_NX: true});
-                                    ClearCollect(
+                                    UpdateContext({ShowTT_NX: true,IsDN: false});
+                                    /*ClearCollect(
                                     TT_NX,
                                     Table(
                                         {
@@ -336,7 +336,7 @@ ThongKe As screen:
                                             }
                                         }
                                     )
-                                );
+                                );*/
                                     ,
                                     If(
                                         ComboBox1.Selected.Value = "Số lượng sản phẩm đã được cập nhật theo thời gian",
@@ -351,6 +351,7 @@ ThongKe As screen:
                 SearchFields: =["Value"]
                 SearchItems: =Search(["Số lượng đơn nhập được tạo","Só lượng đơn xuất được tạo","Thống kê theo trạng thái đơn nhập","Thống kê theo trạng thái đơn xuất","Số lượng sản phẩm đã được cập nhật theo thời gian"],ComboBox1.SearchText,Value)
                 SelectionFill: =App.Theme.Colors.Primary
+                SelectMultiple: =false
                 Size: =13
                 X: =193
                 Y: =25
@@ -380,33 +381,83 @@ ThongKe As screen:
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =App.Theme.Font
-                    Height: =25
+                    Height: =Container10.Height
                     Text: =ComboBox1.Selected.Value
                     Visible: =ShowTT_NX
-                    Width: =400
-                    X: =2
-                    Y: =25
+                    Width: =Container10
                     ZIndex: =2
 
                 PieChart1 As pieChart:
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    Height: =
+                    ItemBorderThickness: =3
                     ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
-                    Items: =TT_NX
+                    Items: |-
+                        =If(
+                            IsDN,
+                            AddColumns(
+                                AddColumns(
+                                    GroupBy(
+                                        AddColumns(
+                                            ShowColumns(
+                                                'mWarehouse.Imports',
+                                                status
+                                            ),
+                                            status_Name,
+                                            status.Value
+                                        ),
+                                        status_Name,
+                                        gr_Status_Name
+                                    ),
+                                    quantity,
+                                    CountRows(ThisRecord.gr_Status_Name)
+                                ),
+                                lable,
+                                Concatenate(
+                                    status_Name,
+                                    " (",
+                                    quantity,
+                                    ") "
+                                )
+                            ),
+                            AddColumns(
+                                AddColumns(
+                                    GroupBy(
+                                        AddColumns(
+                                            ShowColumns(
+                                                'mWarehouse.Exports',
+                                                status
+                                            ),
+                                            status_Name,
+                                            status.Value
+                                        ),
+                                        status_Name,
+                                        gr_Status_Name
+                                    ),
+                                    quantity,
+                                    CountRows(ThisRecord.gr_Status_Name)
+                                ),
+                                lable,
+                                Concatenate(
+                                    status_Name,
+                                    " (",
+                                    quantity,
+                                    ") "
+                                )
+                            )
+                        )
                     Visible: =ShowTT_NX
-                    X: =2
-                    Y: =55
+                    Width: =Container10
                     ZIndex: =3
 
                 Legend1 As legend:
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =App.Theme.Font
-                    Height: =200
+                    Height: =Container10.Height
                     ItemColorSet: =PieChart1.ItemColorSet
                     Items: =PieChart1.SeriesLabels
                     Visible: =ShowTT_NX
-                    Width: =400
-                    X: =585
-                    Y: =135
+                    Width: =Container10
                     ZIndex: =4
 
     ThemSp_2 As group:
