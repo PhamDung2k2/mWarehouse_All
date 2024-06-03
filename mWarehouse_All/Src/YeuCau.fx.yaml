@@ -7496,7 +7496,7 @@ YeuCau As screen:
                 FontWeight: =FontWeight.Bold
                 Height: =70
                 Size: =23
-                Text: ="Chắc chắn hoàn thành đơn nhập hàng này không ?"
+                Text: ="Chắc chắn hoàn thành đơn xuất hàng này không ?"
                 Width: =750
                 X: =5
                 Y: =20
@@ -7515,15 +7515,15 @@ YeuCau As screen:
                 HoverFill: =App.Theme.Colors.Darker10
                 OnSelect: |-
                     =If(
-                        IsBlank(TextInput3_4.Text) Or IsEmpty(Gallery2_4.AllItems),
+                        IsBlank(TextInput3_4.Text) Or IsEmpty(Gallery2_4.AllItems) Or IsBlank(ComboBox4_3.Selected.ID),
                         Notify("Không được để trống !"),
                         Patch(
-                            'mWarehouse.Imports',
-                            Defaults('mWarehouse.Imports'),
+                            'mWarehouse.Exports',
+                            Defaults('mWarehouse.Exports'),
                             {
                                 Title: TextInput3_4.Text,
-                                importCode: Label1_29.Text,
-                                supplierID: ComboBox4_3.Selected.ID,
+                                exportCode: Label1_29.Text,
+                                customerID: ComboBox4_3.Selected.ID,
                                 userID: LookUp(
                                     'mWarehouse.Users',
                                     account = TextInput1.Text
@@ -7533,17 +7533,17 @@ YeuCau As screen:
                                 totalPrice: Value(
                                     Sum(
                                         Filter(
-                                            'mWarehouse.ImportDetails',
-                                            importID = Label1_29.Text
+                                            'mWarehouse.ExportDetails',
+                                            exportID = Label1_29.Text
                                         ),
                                         totalPrice
                                     )
                                 )
                             }
                         );
-                        Notify("Hoàn thành đơn nhập !");
-                        UpdateContext({ShowThemDonN: false});
-                        UpdateContext({ShowXacNhan1: false});
+                        Notify("Hoàn thành đơn xuất !");
+                        UpdateContext({ShowThemDonX: false});
+                        UpdateContext({ShowXacNhanX_Add: false});
                         Reset(ComboBox4_3);
                         Reset(TextInput3_4);
                         //false
@@ -7594,7 +7594,7 @@ YeuCau As screen:
                 HoverColor: =RGBA(255, 255, 255, 1)
                 HoverFill: =App.Theme.Colors.Darker10
                 OnSelect: |-
-                    =UpdateContext({ShowXacNhan1:false})
+                    =UpdateContext({ShowXacNhanX_Add:false})
                 PressedBorderColor: =App.Theme.Colors.Darker40
                 PressedColor: =Self.Color
                 PressedFill: =App.Theme.Colors.Darker40

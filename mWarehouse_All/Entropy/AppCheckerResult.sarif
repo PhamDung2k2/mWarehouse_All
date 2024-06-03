@@ -2224,9 +2224,9 @@
                 },
                 "region": {
                   "charLength": 206,
-                  "charOffset": 580,
+                  "charOffset": 616,
                   "snippet": {
-                    "text": "Sum(\n                    Filter(\n                        'mWarehouse.ImportDetails',\n                        importID = Label1_29.Text\n                    ),\n                    totalPrice\n                )"
+                    "text": "Sum(\n                    Filter(\n                        'mWarehouse.ExportDetails',\n                        exportID = Label1_29.Text\n                    ),\n                    totalPrice\n                )"
                   }
                 }
               },
