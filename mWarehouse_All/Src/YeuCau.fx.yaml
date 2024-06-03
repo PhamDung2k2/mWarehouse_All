@@ -4171,6 +4171,10 @@ YeuCau As screen:
                             'mWarehouse.ImportDetails',
                             importID = Label1_22.Text
                         );
+                        RemoveIf(
+                            'mWarehouse.Imports',
+                            importCode = Label1_22.Text
+                        );
                         Notify("Xóa đơn nhập thành công!");
                         UpdateContext({ShowThemDonN1: false});
                         UpdateContext({ShowHuyBo2: false});
@@ -4180,6 +4184,10 @@ YeuCau As screen:
                         RemoveIf(
                             'mWarehouse.ImportDetails',
                             importID = Label1_22.Text
+                        );
+                        RemoveIf(
+                            'mWarehouse.Imports',
+                            importCode = Label1_22.Text
                         );
                         Notify("Xóa đơn nhập thành công!");
                         UpdateContext({ShowThemDonN1: false});
