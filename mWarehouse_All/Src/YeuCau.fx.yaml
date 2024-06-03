@@ -7711,8 +7711,9 @@ YeuCau As screen:
                 Font: =App.Theme.Font
                 FontWeight: =FontWeight.Semibold
                 Size: =13
-                Text: |
-                    =Concatenate("HD_",Text( Right(Last('mWarehouse.Exports').exportCode,3)+1,"000"))
+                Text: |-
+                    =//Concatenate("HD_",Text( Right(Last('mWarehouse.Exports').exportCode,3)+1,"000"))
+                    Gallery3_1.Selected.exportCode
                 Width: =200
                 X: =192
                 Y: =9
