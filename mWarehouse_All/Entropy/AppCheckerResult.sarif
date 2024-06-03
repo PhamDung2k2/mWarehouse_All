@@ -1574,6 +1574,46 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "YeuCau.CTDonN_1.Container16_4.ComboBox5_2.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "YeuCau.CTDonN_1.Container16_4.ComboBox5_2.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 3,
+                  "charOffset": 280,
+                  "snippet": {
+                    "text": "And"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "YeuCau",
+                "type": "YeuCau.CTDonN_1.Container16_4.ComboBox5_2"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "YeuCau.HuyBo1.Button11_5.OnSelect"
                 }
               ],

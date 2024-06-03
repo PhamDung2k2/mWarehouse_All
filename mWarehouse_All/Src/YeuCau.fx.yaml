@@ -3486,7 +3486,7 @@ YeuCau As screen:
                             Font: =App.Theme.Font
                             Height: =65
                             OnSelect: |-
-                                =UpdateContext({ShowUpdateSP_DN1:true})
+                                =UpdateContext({ShowUpdateSP_DN2:true})
                             Size: =13
                             Text: =ThisItem.Title
                             Width: =350
@@ -3560,7 +3560,7 @@ YeuCau As screen:
                             Font: =App.Theme.Font
                             Height: =65
                             OnSelect: |-
-                                =UpdateContext({ShowUpdateSP_DN1:true})
+                                =UpdateContext({ShowUpdateSP_DN2:true})
                             Size: =13
                             Text: |-
                                 =Concatenate(Text(ThisItem.priceImport,"###,###")," VNĐ")
@@ -3577,7 +3577,7 @@ YeuCau As screen:
                             Font: =App.Theme.Font
                             Height: =65
                             OnSelect: |-
-                                =UpdateContext({ShowUpdateSP_DN1:true})
+                                =UpdateContext({ShowUpdateSP_DN2:true})
                             Size: =13
                             Text: =ThisItem.quantity
                             Width: =80
@@ -3715,6 +3715,9 @@ YeuCau As screen:
                                     'mWarehouse.Imports',
                                     status.Value = "Chờ duyệt"
                                 ).importCode
+                            ).productID)And !(ID exactin Filter(
+                                'mWarehouse.ImportDetails',
+                                importID = Label1_22.Text
                             ).productID)
                         )
                         //And LookUp('mWarehouse.Imports',importCode exactin 'mWarehouse.ImportDetails'.importID).status.Value = "Chờ duyệt"))
