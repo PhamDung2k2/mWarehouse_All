@@ -328,7 +328,7 @@ ThongKe As screen:
                                     ,
                                     If(
                                         ComboBox1.Selected.Value = "Số lượng sản phẩm đã được cập nhật theo thời gian",
-                                        UpdateContext({})
+                                        UpdateContext({ShowQuantity:false,ShowTT_NX:false})
                                     )
                                 )
                             )
@@ -369,6 +369,7 @@ ThongKe As screen:
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =App.Theme.Font
                     FontWeight: =FontWeight.Semibold
+                    Height: =49
                     Size: |
                         =20
                     Text: =ComboBox1.Selected.Value
@@ -378,7 +379,7 @@ ThongKe As screen:
 
                 PieChart2 As pieChart:
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    Height: =484
+                    Height: =587
                     ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(94,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
                     Items: |-
                         =If(
@@ -443,14 +444,14 @@ ThongKe As screen:
                 Legend2 As legend:
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =App.Theme.Font
-                    Height: =176
+                    Height: =217
                     ItemColorSet: =PieChart2.ItemColorSet
                     Items: =PieChart2.SeriesLabels
                     Size: =16
                     Visible: =ShowTT_NX
-                    Width: =408
-                    X: =748
-                    Y: =163
+                    Width: =386
+                    X: =770
+                    Y: =370
                     ZIndex: =4
 
             CompositeColumnChart1 As group:
