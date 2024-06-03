@@ -13853,19 +13853,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ThongKe.Container4_4.Container5_4.ComboBox1.AccessibleLabel"
+                  "fullyQualifiedName": "ThongKe.Container4_4.Container10.ColumnChart1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ThongKe.Container4_4.Container5_4.ComboBox1.AccessibleLabel",
+                  "fullyQualifiedName": "ThongKe.Container4_4.Container10.ColumnChart1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ThongKe",
-                "type": "ThongKe.Container4_4.Container5_4.ComboBox1"
+                "type": "ThongKe.Container4_4.Container10.ColumnChart1"
               }
             }
           ],
@@ -19043,19 +19043,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ThongKe.Container4_4.Container5_4.ComboBox2.AccessibleLabel"
+                  "fullyQualifiedName": "ThongKe.Container4_4.Container2_4.ComboBox1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ThongKe.Container4_4.Container5_4.ComboBox2.AccessibleLabel",
+                  "fullyQualifiedName": "ThongKe.Container4_4.Container2_4.ComboBox1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ThongKe",
-                "type": "ThongKe.Container4_4.Container5_4.ComboBox2"
+                "type": "ThongKe.Container4_4.Container2_4.ComboBox1"
               }
             }
           ],
@@ -21465,36 +21465,6 @@
           },
           "ruleId": "app-TextInputIsNotDelayOutput",
           "ruleIndex": 13
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ThongKe.IsDNQuantity"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ThongKe.IsDNQuantity",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "IsDNQuantity",
-                "module": "ThongKe",
-                "type": "ThongKe"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 12
         },
         {
           "locations": [

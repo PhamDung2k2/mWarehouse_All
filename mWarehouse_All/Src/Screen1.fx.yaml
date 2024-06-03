@@ -2506,3 +2506,15 @@ Screen1 As screen:
         Y: =157
         ZIndex: =5
 
+    Container5_4 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Semilight
+        Height: |
+            =100
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        Y: =90
+        ZIndex: =6
+
