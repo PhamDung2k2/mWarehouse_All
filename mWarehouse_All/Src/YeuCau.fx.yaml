@@ -2683,7 +2683,8 @@ YeuCau As screen:
                         Notify("Không được để trống !"),
                         SubmitForm(Form1_2);
                         UpdateContext({ShowThemKH2: false});
-                        Notify("Thêm mới thành công")
+                        Notify("Thêm mới thành công");
+                        UpdateContext({ShowTTKH_Add: true})
                     )
                 PressedBorderColor: =App.Theme.Colors.Darker40
                 PressedColor: =Self.Color
@@ -4736,7 +4737,8 @@ YeuCau As screen:
                         Notify("Không được để trống !"),
                         SubmitForm(Form1_3);
                         UpdateContext({ShowThemKH3: false});
-                        Notify("Thêm mới thành công")
+                        Notify("Thêm mới thành công");
+                        UpdateContext({ShowTTKH_Update: true})
                     )
                 PressedBorderColor: =App.Theme.Colors.Darker40
                 PressedColor: =Self.Color
@@ -7155,7 +7157,7 @@ YeuCau As screen:
                 Height: =35
                 Icon: =Icon.Cancel
                 OnSelect: |-
-                    =UpdateContext({ShowThemDonX: false})
+                    =UpdateContext({ShowUpdateDonX: false})
                 Width: =35
                 X: =1086
                 Y: =16
@@ -7336,7 +7338,7 @@ YeuCau As screen:
                             ResetForm(Form1_3);
                             NewForm(Form1_3);
                             UpdateContext({ShowThemKH3: true});
-                            UpdateContext({ShowTTKH_Update: true})
+                            
                         )
                     Tooltip: ="Thêm mới thông tin khách hàng"
                     Width: =35
@@ -7370,7 +7372,7 @@ YeuCau As screen:
                                 ).supplierID
                             )
                         )*/
-                        If(ShowTTKH_Add,Last('mWarehouse.Customers'))
+                        If(ShowTTKH_Update,Last('mWarehouse.Customers'))
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -7384,9 +7386,7 @@ YeuCau As screen:
                     InputTextPlaceholder: ="Chọn tên khách hàng"
                     Items: ='mWarehouse.Customers'
                     NoSelectionText: ="Chọn tên khách hàng"
-                    OnChange: |-
-                        =Reset(ComboBox5_4);
-                        Reset(TextInput4_1);
+                    OnChange: =
                     PressedColor: =RGBA(255, 255, 255, 1)
                     PressedFill: =App.Theme.Colors.Darker30
                     SearchFields: =["Title"]
@@ -8969,7 +8969,7 @@ YeuCau As screen:
                             ResetForm(Form1_2);
                             NewForm(Form1_2);
                             UpdateContext({ShowThemKH2: true});
-                            UpdateContext({ShowTTKH_Add: true})
+                           
                         )
                     Tooltip: ="Thêm mới thông tin khách hàng"
                     Width: =35

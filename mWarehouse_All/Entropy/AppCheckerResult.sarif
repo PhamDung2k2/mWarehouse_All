@@ -2414,46 +2414,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "YeuCau.CTDonX_Update.Container16_10.ComboBox4_4.OnChange"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "YeuCau.CTDonX_Update.Container16_10.ComboBox4_4.OnChange",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 12,
-                  "charOffset": 26,
-                  "snippet": {
-                    "text": "TextInput4_1"
-                  }
-                }
-              },
-              "properties": {
-                "member": "OnChange",
-                "module": "YeuCau",
-                "type": "YeuCau.CTDonX_Update.Container16_10.ComboBox4_4"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "TextInput4_1"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "YeuCau.CTDonX_Update.Container16_10.ComboBox5_4.SearchItems"
                 }
               ],
@@ -20745,36 +20705,6 @@
           },
           "ruleId": "app-ScreenHasManyControls",
           "ruleIndex": 12
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "YeuCau.ShowTTKH_Update"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "YeuCau.ShowTTKH_Update",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "ShowTTKH_Update",
-                "module": "YeuCau",
-                "type": "YeuCau"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 10
         },
         {
           "locations": [
