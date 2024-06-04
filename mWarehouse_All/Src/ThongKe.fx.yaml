@@ -548,7 +548,6 @@ ThongKe As screen:
                             )
                         )
                     ItemsGap: =10
-                    PaddingLeft: =20
                     Size: =15
                     Visible: =ShowQuantity
                     Width: =1156
