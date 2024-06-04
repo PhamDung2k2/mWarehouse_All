@@ -7936,7 +7936,7 @@
         {
           "Category": "Behavior",
           "PropertyName": "OnChange",
-          "RuleProviderType": "User"
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultComboBoxStyle",
@@ -23498,7 +23498,7 @@
       "MetaDataIDKey": "",
       "Name": "Container20",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 17,
+      "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -23700,7 +23700,7 @@
       "MetaDataIDKey": "",
       "Name": "Container20_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 18,
+      "ParentIndex": 16,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -23929,7 +23929,7 @@
       "MetaDataIDKey": "",
       "Name": "Container3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 15,
+      "ParentIndex": 17,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24153,7 +24153,7 @@
       "MetaDataIDKey": "",
       "Name": "Container4",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 16,
+      "ParentIndex": 18,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
