@@ -1061,6 +1061,7 @@ YeuCau As screen:
 
                 "NumberInput1 As 'Number input'":
                     Align: ='NumberInput.Align'.Start
+                    Appearance: ="FilledDarker"
                     BasePaletteColor: =RGBA(5, 102, 178, 1)
                     DisplayMode: =DisplayMode.Edit
                     Height: =40
@@ -3447,6 +3448,7 @@ YeuCau As screen:
                         ZIndex: =1
 
                     "NumberInput2 As 'Number input'":
+                        Appearance: ="FilledDarker"
                         DisplayMode: =DisplayMode.Edit
                         Height: =50
                         Value: =Gallery2_1.Selected.quantity
@@ -3847,6 +3849,7 @@ YeuCau As screen:
 
                 "NumberInput1_2 As 'Number input'":
                     Align: ='NumberInput.Align'.Start
+                    Appearance: ="FilledDarker"
                     BasePaletteColor: =RGBA(5, 102, 178, 1)
                     DisplayMode: =DisplayMode.Edit
                     Height: =40
@@ -5508,6 +5511,7 @@ YeuCau As screen:
                         ZIndex: =1
 
                     "NumberInput2_1 As 'Number input'":
+                        Appearance: ="FilledDarker"
                         BasePaletteColor: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =50
@@ -6297,6 +6301,7 @@ YeuCau As screen:
                         ZIndex: =1
 
                     "NumberInput3_1 As 'Number input'":
+                        Appearance: ="FilledDarker"
                         DisplayMode: =DisplayMode.Edit
                         Height: =50
                         Min: =1
@@ -7086,6 +7091,7 @@ YeuCau As screen:
                         ZIndex: =1
 
                     "NumberInput3_2 As 'Number input'":
+                        Appearance: ="FilledDarker"
                         DisplayMode: =DisplayMode.Edit
                         Height: =50
                         Min: =1
@@ -7519,6 +7525,7 @@ YeuCau As screen:
 
                 "NumberInput1_4 As 'Number input'":
                     Align: ='NumberInput.Align'.Start
+                    Appearance: ="FilledDarker"
                     BasePaletteColor: =RGBA(5, 102, 178, 1)
                     DisplayMode: =DisplayMode.Edit
                     Height: =40
@@ -9162,6 +9169,7 @@ YeuCau As screen:
 
                 "NumberInput1_3 As 'Number input'":
                     Align: ='NumberInput.Align'.Start
+                    Appearance: ="FilledDarker"
                     BasePaletteColor: =RGBA(5, 102, 178, 1)
                     DisplayMode: =DisplayMode.Edit
                     Height: =40

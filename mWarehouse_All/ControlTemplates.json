@@ -87,7 +87,7 @@
             }
           ]
         },
-        "Version": "1.341"
+        "Version": "1.342"
       }
     },
     "PCFDynamicSchemaForIRRetrieval": {
@@ -281,7 +281,7 @@
     "Name": "PowerApps_CoreControls_NumberInput",
     "OverridableProperties": {},
     "TemplateDisplayName": "Number input",
-    "Version": "2.2.4"
+    "Version": "2.8.0"
   },
   "pieChart": {
     "CustomGroupControlTemplateName": "",
@@ -338,7 +338,7 @@
     "Name": "PowerApps_CoreControls_TabList",
     "OverridableProperties": {},
     "TemplateDisplayName": "Tab list",
-    "Version": "2.2.20"
+    "Version": "2.2.26"
   },
   "text": {
     "CustomGroupControlTemplateName": "",
@@ -367,7 +367,7 @@
     "Name": "PowerApps_CoreControls_TextCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Text",
-    "Version": "0.0.30"
+    "Version": "0.0.37"
   },
   "toggleSwitch": {
     "CustomGroupControlTemplateName": "",

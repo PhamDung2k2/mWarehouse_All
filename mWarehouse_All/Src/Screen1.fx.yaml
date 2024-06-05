@@ -2482,8 +2482,6 @@ Screen1 As screen:
                         ZIndex: =6
 
     TextCanvas1 As Text:
-        BorderColor: =""
-        BorderStyle: =""
         DisplayMode: =DisplayMode.Edit
         Fill: =
         FontColor: =

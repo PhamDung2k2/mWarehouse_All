@@ -2039,6 +2039,7 @@ ThongTin As screen:
 
                 "NumberInput1_1 As 'Number input'":
                     Align: ='NumberInput.Align'.Start
+                    Appearance: ="FilledDarker"
                     BasePaletteColor: =RGBA(5, 102, 178, 1)
                     DisplayMode: =DisplayMode.Edit
                     Height: =40
@@ -2938,6 +2939,7 @@ ThongTin As screen:
                         ZIndex: =1
 
                     "NumberInput5 As 'Number input'":
+                        Appearance: ="FilledDarker"
                         DisplayMode: =DisplayMode.Edit
                         Height: =50
                         Value: =Gallery3.Selected.quantity
@@ -4115,6 +4117,7 @@ ThongTin As screen:
                         ZIndex: =1
 
                     "NumberInput3 As 'Number input'":
+                        Appearance: ="FilledDarker"
                         DisplayMode: =DisplayMode.Edit
                         Height: =50
                         Min: =1
@@ -4891,6 +4894,7 @@ ThongTin As screen:
                         ZIndex: =1
 
                     "NumberInput4 As 'Number input'":
+                        Appearance: ="FilledDarker"
                         DisplayMode: =DisplayMode.Edit
                         Height: =50
                         Value: =Gallery2.Selected.quantity
